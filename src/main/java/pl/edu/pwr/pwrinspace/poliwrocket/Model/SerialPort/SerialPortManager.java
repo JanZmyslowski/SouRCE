@@ -40,7 +40,7 @@ public class SerialPortManager implements SerialPortEventListener, ISerialPortMa
     private FrameSaveService frameSaveService;
     private IMessageParser messageParser;
     private String lastMessage = "";
-    protected static String msgPrefix = "SP3MIK";
+    protected static String msgPrefix = Configuration.getInstance().MSG_PREFIX;
 
     private SerialPortManager() {
         if (Holder.INSTANCE != null) {

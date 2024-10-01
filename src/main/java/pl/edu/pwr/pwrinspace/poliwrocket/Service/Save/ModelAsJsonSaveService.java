@@ -22,7 +22,8 @@ public class ModelAsJsonSaveService {
             .registerSubtype(PoteznyTanwiarzSensor.class, "PoteznyTanwiarzSensor")
             .registerSubtype(SettingsSensor.class, "SettingsSensor")
             .registerSubtype(CompositeBitSensor.class, "CompositeBitSensor")
-            .registerSubtype(ByteSensor.class, "ByteSensor");
+            .registerSubtype(ByteSensor.class, "ByteSensor")
+            .registerSubtype(TimerSensor.class, "TimerSensor");
 
     private final RuntimeTypeAdapterFactory<Command> commandAdapterFactory = RuntimeTypeAdapterFactory.of(Command.class, "type")
             .registerSubtype(ProtobufCommand.class, "ProtobufCommand")

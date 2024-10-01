@@ -54,6 +54,8 @@ public class Configuration implements Observable {
 
     public Map<String,List<String>> FRAME_PATTERN = new HashMap<>();
 
+    public String MSG_PREFIX = "";
+
     public List<Command> commandsList = new LinkedList<>();
 
     public List<Schedule> notificationSchedule = new LinkedList<>();
@@ -133,6 +135,7 @@ public class Configuration implements Observable {
         this.FRAME_PATTERN = config.FRAME_PATTERN;
         this.DISCORD_TOKEN = config.DISCORD_TOKEN;
         this.DISCORD_CHANNEL_NAME = config.DISCORD_CHANNEL_NAME;
+        this.MSG_PREFIX = config.MSG_PREFIX;
         this.commandsList = config.commandsList;
         this.sensorRepository = config.sensorRepository;
         this.interpreterRepository = config.interpreterRepository;

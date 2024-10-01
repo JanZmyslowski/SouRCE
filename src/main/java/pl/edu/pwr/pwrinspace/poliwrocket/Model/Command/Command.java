@@ -24,6 +24,7 @@ public class Command<T> implements ICommand {
 
     @Expose
     private List<String> destinationControllerNames = new ArrayList<>();
+
     @Override
     public String toString() {
         return trigger;

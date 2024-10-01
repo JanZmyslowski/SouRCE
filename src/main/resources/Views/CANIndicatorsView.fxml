@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import eu.hansolo.tilesfx.addons.Indicator?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="79.0" prefWidth="418.0" styleClass="baseScene" stylesheets="@constants.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pwr.pwrinspace.poliwrocket.Controller.CANIndicatorsController">
+    <children>
+        <Indicator fx:id="dataIndicator1" layoutX="25.0" layoutY="25.0" prefHeight="42.0" prefWidth="42.0" visible="false" AnchorPane.bottomAnchor="10.400000000000006" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0" />
+        <Label fx:id="indicatorLabel1" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="65.0" text="Indicator1" visible="false" AnchorPane.bottomAnchor="51.4" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="6.0" />
+        <Indicator fx:id="dataIndicator2" layoutX="90.0" layoutY="25.0" prefHeight="42.0" prefWidth="42.0" visible="false" AnchorPane.bottomAnchor="12.400000000000006" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="23.0" />
+        <Label fx:id="indicatorLabel2" alignment="CENTER" contentDisplay="CENTER" layoutX="79.0" layoutY="6.0" prefHeight="17.0" prefWidth="65.0" text="Indicator1" visible="false" AnchorPane.bottomAnchor="51.4" AnchorPane.leftAnchor="79.0" AnchorPane.topAnchor="6.0" />
+        <Indicator fx:id="dataIndicator3" layoutX="156.0" layoutY="25.0" prefHeight="42.0" prefWidth="42.0" visible="false" AnchorPane.bottomAnchor="10.400000000000006" AnchorPane.leftAnchor="156.0" AnchorPane.topAnchor="25.0" />
+        <Label fx:id="indicatorLabel3" alignment="CENTER" contentDisplay="CENTER" layoutX="145.0" layoutY="6.0" prefHeight="17.0" prefWidth="65.0" text="Indicator1" visible="false" AnchorPane.bottomAnchor="51.4" AnchorPane.leftAnchor="145.0" AnchorPane.topAnchor="6.0" />
+        <Indicator fx:id="dataIndicator4" layoutX="221.0" layoutY="24.0" prefHeight="42.0" prefWidth="42.0" visible="false" AnchorPane.bottomAnchor="8.599999999999994" AnchorPane.leftAnchor="221.0" AnchorPane.topAnchor="24.0" />
+        <Label fx:id="indicatorLabel4" alignment="CENTER" contentDisplay="CENTER" layoutX="210.0" layoutY="5.0" prefHeight="17.0" prefWidth="65.0" text="Indicator1" visible="false" AnchorPane.bottomAnchor="52.4" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="6.0" />
+        <Indicator fx:id="dataIndicator5" layoutX="286.0" layoutY="25.0" prefHeight="42.0" prefWidth="42.0" visible="false" AnchorPane.bottomAnchor="8.599999999999994" AnchorPane.leftAnchor="286.0" AnchorPane.topAnchor="24.0" />
+        <Label fx:id="indicatorLabel5" alignment="CENTER" contentDisplay="CENTER" layoutX="275.0" layoutY="6.0" prefHeight="17.0" prefWidth="65.0" text="Indicator1" visible="false" AnchorPane.bottomAnchor="51.800000000000004" AnchorPane.leftAnchor="275.0" AnchorPane.topAnchor="6.0" />
+    </children>
+</AnchorPane>

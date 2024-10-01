@@ -6,7 +6,7 @@
 .baseScene {
     /*-fx-backgroundColor-base: rgba(160,160,160,0.8);*/
     -fx-background-radius: 6px;
-    -fx-background-color: -fx-backgroundColor-base;
+    -fx-background-color: rgb(11, 66, 116, 0.7);
     -fx-border-color: -inspace-base-border-color;
     -fx-border-width: 2px;
 }

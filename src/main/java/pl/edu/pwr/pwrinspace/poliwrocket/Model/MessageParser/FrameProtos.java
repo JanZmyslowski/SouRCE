@@ -397,75 +397,86 @@ public final class FrameProtos {
     float getTankWeight();
 
     /**
-     * <code>required float temperature1 = 31;</code>
-     * @return Whether the temperature1 field is set.
+     * <code>required float temperature_fill = 31;</code>
+     * @return Whether the temperatureFill field is set.
      */
-    boolean hasTemperature1();
+    boolean hasTemperatureFill();
     /**
-     * <code>required float temperature1 = 31;</code>
-     * @return The temperature1.
+     * <code>required float temperature_fill = 31;</code>
+     * @return The temperatureFill.
      */
-    float getTemperature1();
+    float getTemperatureFill();
 
     /**
-     * <code>required float temperature2 = 32;</code>
-     * @return Whether the temperature2 field is set.
+     * <code>required float pre_fill_pressure = 32;</code>
+     * @return Whether the preFillPressure field is set.
      */
-    boolean hasTemperature2();
+    boolean hasPreFillPressure();
     /**
-     * <code>required float temperature2 = 32;</code>
-     * @return The temperature2.
+     * <code>required float pre_fill_pressure = 32;</code>
+     * @return The preFillPressure.
      */
-    float getTemperature2();
+    float getPreFillPressure();
 
     /**
-     * <code>required float pressure = 33;</code>
-     * @return Whether the pressure field is set.
+     * <code>required float post_fill_pressure = 33;</code>
+     * @return Whether the postFillPressure field is set.
      */
-    boolean hasPressure();
+    boolean hasPostFillPressure();
     /**
-     * <code>required float pressure = 33;</code>
-     * @return The pressure.
+     * <code>required float post_fill_pressure = 33;</code>
+     * @return The postFillPressure.
      */
-    float getPressure();
+    float getPostFillPressure();
+
+    /**
+     * <code>required float btl_pressure = 34;</code>
+     * @return Whether the btlPressure field is set.
+     */
+    boolean hasBtlPressure();
+    /**
+     * <code>required float btl_pressure = 34;</code>
+     * @return The btlPressure.
+     */
+    float getBtlPressure();
 
     /**
      * <pre>
-     * payload frame
+     * payload
      * </pre>
      *
-     * <code>required float payload_battery = 34;</code>
+     * <code>required float payload_battery = 35;</code>
      * @return Whether the payloadBattery field is set.
      */
     boolean hasPayloadBattery();
     /**
      * <pre>
-     * payload frame
+     * payload
      * </pre>
      *
-     * <code>required float payload_battery = 34;</code>
+     * <code>required float payload_battery = 35;</code>
      * @return The payloadBattery.
      */
     float getPayloadBattery();
 
     /**
-     * <code>required fixed32 esp_now_byte_data = 35;</code>
+     * <code>required fixed32 esp_now_byte_data = 36;</code>
      * @return Whether the espNowByteData field is set.
      */
     boolean hasEspNowByteData();
     /**
-     * <code>required fixed32 esp_now_byte_data = 35;</code>
+     * <code>required fixed32 esp_now_byte_data = 36;</code>
      * @return The espNowByteData.
      */
     int getEspNowByteData();
 
     /**
-     * <code>required fixed32 errors = 36;</code>
+     * <code>required fixed32 errors = 37;</code>
      * @return Whether the errors field is set.
      */
     boolean hasErrors();
     /**
-     * <code>required fixed32 errors = 36;</code>
+     * <code>required fixed32 errors = 37;</code>
      * @return The errors.
      */
     int getErrors();
@@ -492,6 +503,235 @@ public final class FrameProtos {
       return new LoRaFrame();
     }
 
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LoRaFrame(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      int mutable_bitField1_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              obcState_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              dcTime_ = input.readUInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              flightTime_ = input.readUInt32();
+              break;
+            }
+            case 37: {
+              bitField0_ |= 0x00000008;
+              mcbBattery_ = input.readFloat();
+              break;
+            }
+            case 45: {
+              bitField0_ |= 0x00000010;
+              gpsLat_ = input.readFloat();
+              break;
+            }
+            case 53: {
+              bitField0_ |= 0x00000020;
+              gpsLong_ = input.readFloat();
+              break;
+            }
+            case 61: {
+              bitField0_ |= 0x00000040;
+              gpsSat_ = input.readFloat();
+              break;
+            }
+            case 69: {
+              bitField0_ |= 0x00000080;
+              mcbAltitude_ = input.readFloat();
+              break;
+            }
+            case 77: {
+              bitField0_ |= 0x00000100;
+              mcbVelocity_ = input.readFloat();
+              break;
+            }
+            case 80: {
+              bitField0_ |= 0x00000200;
+              mcbTemperature_ = input.readInt32();
+              break;
+            }
+            case 93: {
+              bitField0_ |= 0x00000400;
+              eulerFi_ = input.readFloat();
+              break;
+            }
+            case 101: {
+              bitField0_ |= 0x00000800;
+              eulerPsi_ = input.readFloat();
+              break;
+            }
+            case 109: {
+              bitField0_ |= 0x00001000;
+              eulerTheta_ = input.readFloat();
+              break;
+            }
+            case 112: {
+              bitField0_ |= 0x00002000;
+              recovPressure1_ = input.readUInt32();
+              break;
+            }
+            case 120: {
+              bitField0_ |= 0x00004000;
+              recovPressure2_ = input.readUInt32();
+              break;
+            }
+            case 133: {
+              bitField0_ |= 0x00008000;
+              recovByteData_ = input.readFixed32();
+              break;
+            }
+            case 141: {
+              bitField0_ |= 0x00010000;
+              pitotBattery_ = input.readFloat();
+              break;
+            }
+            case 144: {
+              bitField0_ |= 0x00020000;
+              pitotAltitude_ = input.readInt32();
+              break;
+            }
+            case 152: {
+              bitField0_ |= 0x00040000;
+              pitotVelocity_ = input.readInt32();
+              break;
+            }
+            case 160: {
+              bitField0_ |= 0x00080000;
+              pitotTemperature_ = input.readInt32();
+              break;
+            }
+            case 173: {
+              bitField0_ |= 0x00100000;
+              mvalBattery_ = input.readFloat();
+              break;
+            }
+            case 181: {
+              bitField0_ |= 0x00200000;
+              mvalByteData_ = input.readFixed32();
+              break;
+            }
+            case 189: {
+              bitField0_ |= 0x00400000;
+              ventBattery_ = input.readFloat();
+              break;
+            }
+            case 197: {
+              bitField0_ |= 0x00800000;
+              tankPressure_ = input.readFloat();
+              break;
+            }
+            case 205: {
+              bitField0_ |= 0x01000000;
+              ventByteData_ = input.readFixed32();
+              break;
+            }
+            case 213: {
+              bitField0_ |= 0x02000000;
+              tanwaBattery_ = input.readFloat();
+              break;
+            }
+            case 221: {
+              bitField0_ |= 0x04000000;
+              tanwaByteData_ = input.readFixed32();
+              break;
+            }
+            case 224: {
+              bitField0_ |= 0x08000000;
+              tanwaState_ = input.readUInt32();
+              break;
+            }
+            case 237: {
+              bitField0_ |= 0x10000000;
+              rocketWeight_ = input.readFloat();
+              break;
+            }
+            case 245: {
+              bitField0_ |= 0x20000000;
+              tankWeight_ = input.readFloat();
+              break;
+            }
+            case 253: {
+              bitField0_ |= 0x40000000;
+              temperatureFill_ = input.readFloat();
+              break;
+            }
+            case 261: {
+              bitField0_ |= 0x80000000;
+              preFillPressure_ = input.readFloat();
+              break;
+            }
+            case 269: {
+              bitField1_ |= 0x00000001;
+              postFillPressure_ = input.readFloat();
+              break;
+            }
+            case 277: {
+              bitField1_ |= 0x00000002;
+              btlPressure_ = input.readFloat();
+              break;
+            }
+            case 285: {
+              bitField1_ |= 0x00000004;
+              payloadBattery_ = input.readFloat();
+              break;
+            }
+            case 293: {
+              bitField1_ |= 0x00000008;
+              espNowByteData_ = input.readFixed32();
+              break;
+            }
+            case 301: {
+              bitField1_ |= 0x00000010;
+              errors_ = input.readFixed32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.internal_static_LoRaFrame_descriptor;
@@ -508,7 +748,7 @@ public final class FrameProtos {
     private int bitField0_;
     private int bitField1_;
     public static final int OBC_STATE_FIELD_NUMBER = 1;
-    private int obcState_ = 0;
+    private int obcState_;
     /**
      * <pre>
      * mcb frame
@@ -535,7 +775,7 @@ public final class FrameProtos {
     }
 
     public static final int DC_TIME_FIELD_NUMBER = 2;
-    private int dcTime_ = 0;
+    private int dcTime_;
     /**
      * <code>required uint32 dc_time = 2;</code>
      * @return Whether the dcTime field is set.
@@ -554,7 +794,7 @@ public final class FrameProtos {
     }
 
     public static final int FLIGHT_TIME_FIELD_NUMBER = 3;
-    private int flightTime_ = 0;
+    private int flightTime_;
     /**
      * <code>required uint32 flight_time = 3;</code>
      * @return Whether the flightTime field is set.
@@ -573,7 +813,7 @@ public final class FrameProtos {
     }
 
     public static final int MCB_BATTERY_FIELD_NUMBER = 4;
-    private float mcbBattery_ = 0F;
+    private float mcbBattery_;
     /**
      * <code>required float mcb_battery = 4;</code>
      * @return Whether the mcbBattery field is set.
@@ -592,7 +832,7 @@ public final class FrameProtos {
     }
 
     public static final int GPS_LAT_FIELD_NUMBER = 5;
-    private float gpsLat_ = 0F;
+    private float gpsLat_;
     /**
      * <code>required float gps_lat = 5;</code>
      * @return Whether the gpsLat field is set.
@@ -611,7 +851,7 @@ public final class FrameProtos {
     }
 
     public static final int GPS_LONG_FIELD_NUMBER = 6;
-    private float gpsLong_ = 0F;
+    private float gpsLong_;
     /**
      * <code>required float gps_long = 6;</code>
      * @return Whether the gpsLong field is set.
@@ -630,7 +870,7 @@ public final class FrameProtos {
     }
 
     public static final int GPS_SAT_FIELD_NUMBER = 7;
-    private float gpsSat_ = 0F;
+    private float gpsSat_;
     /**
      * <code>required float gps_sat = 7;</code>
      * @return Whether the gpsSat field is set.
@@ -649,7 +889,7 @@ public final class FrameProtos {
     }
 
     public static final int MCB_ALTITUDE_FIELD_NUMBER = 8;
-    private float mcbAltitude_ = 0F;
+    private float mcbAltitude_;
     /**
      * <code>required float mcb_altitude = 8;</code>
      * @return Whether the mcbAltitude field is set.
@@ -668,7 +908,7 @@ public final class FrameProtos {
     }
 
     public static final int MCB_VELOCITY_FIELD_NUMBER = 9;
-    private float mcbVelocity_ = 0F;
+    private float mcbVelocity_;
     /**
      * <code>required float mcb_velocity = 9;</code>
      * @return Whether the mcbVelocity field is set.
@@ -687,7 +927,7 @@ public final class FrameProtos {
     }
 
     public static final int MCB_TEMPERATURE_FIELD_NUMBER = 10;
-    private int mcbTemperature_ = 0;
+    private int mcbTemperature_;
     /**
      * <code>required int32 mcb_temperature = 10;</code>
      * @return Whether the mcbTemperature field is set.
@@ -706,7 +946,7 @@ public final class FrameProtos {
     }
 
     public static final int EULER_FI_FIELD_NUMBER = 11;
-    private float eulerFi_ = 0F;
+    private float eulerFi_;
     /**
      * <code>required float euler_fi = 11;</code>
      * @return Whether the eulerFi field is set.
@@ -725,7 +965,7 @@ public final class FrameProtos {
     }
 
     public static final int EULER_PSI_FIELD_NUMBER = 12;
-    private float eulerPsi_ = 0F;
+    private float eulerPsi_;
     /**
      * <code>required float euler_psi = 12;</code>
      * @return Whether the eulerPsi field is set.
@@ -744,7 +984,7 @@ public final class FrameProtos {
     }
 
     public static final int EULER_THETA_FIELD_NUMBER = 13;
-    private float eulerTheta_ = 0F;
+    private float eulerTheta_;
     /**
      * <code>required float euler_theta = 13;</code>
      * @return Whether the eulerTheta field is set.
@@ -763,7 +1003,7 @@ public final class FrameProtos {
     }
 
     public static final int RECOV_PRESSURE_1_FIELD_NUMBER = 14;
-    private int recovPressure1_ = 0;
+    private int recovPressure1_;
     /**
      * <pre>
      * recovery frame
@@ -790,7 +1030,7 @@ public final class FrameProtos {
     }
 
     public static final int RECOV_PRESSURE_2_FIELD_NUMBER = 15;
-    private int recovPressure2_ = 0;
+    private int recovPressure2_;
     /**
      * <code>required uint32 recov_pressure_2 = 15;</code>
      * @return Whether the recovPressure2 field is set.
@@ -809,7 +1049,7 @@ public final class FrameProtos {
     }
 
     public static final int RECOV_BYTE_DATA_FIELD_NUMBER = 16;
-    private int recovByteData_ = 0;
+    private int recovByteData_;
     /**
      * <code>required fixed32 recov_byte_data = 16;</code>
      * @return Whether the recovByteData field is set.
@@ -828,7 +1068,7 @@ public final class FrameProtos {
     }
 
     public static final int PITOT_BATTERY_FIELD_NUMBER = 17;
-    private float pitotBattery_ = 0F;
+    private float pitotBattery_;
     /**
      * <pre>
      * pitot frame
@@ -855,7 +1095,7 @@ public final class FrameProtos {
     }
 
     public static final int PITOT_ALTITUDE_FIELD_NUMBER = 18;
-    private int pitotAltitude_ = 0;
+    private int pitotAltitude_;
     /**
      * <code>required int32 pitot_altitude = 18;</code>
      * @return Whether the pitotAltitude field is set.
@@ -874,7 +1114,7 @@ public final class FrameProtos {
     }
 
     public static final int PITOT_VELOCITY_FIELD_NUMBER = 19;
-    private int pitotVelocity_ = 0;
+    private int pitotVelocity_;
     /**
      * <code>required int32 pitot_velocity = 19;</code>
      * @return Whether the pitotVelocity field is set.
@@ -893,7 +1133,7 @@ public final class FrameProtos {
     }
 
     public static final int PITOT_TEMPERATURE_FIELD_NUMBER = 20;
-    private int pitotTemperature_ = 0;
+    private int pitotTemperature_;
     /**
      * <code>required int32 pitot_temperature = 20;</code>
      * @return Whether the pitotTemperature field is set.
@@ -912,7 +1152,7 @@ public final class FrameProtos {
     }
 
     public static final int MVAL_BATTERY_FIELD_NUMBER = 21;
-    private float mvalBattery_ = 0F;
+    private float mvalBattery_;
     /**
      * <pre>
      * main valve
@@ -939,7 +1179,7 @@ public final class FrameProtos {
     }
 
     public static final int MVAL_BYTE_DATA_FIELD_NUMBER = 22;
-    private int mvalByteData_ = 0;
+    private int mvalByteData_;
     /**
      * <code>required fixed32 mval_byte_data = 22;</code>
      * @return Whether the mvalByteData field is set.
@@ -958,7 +1198,7 @@ public final class FrameProtos {
     }
 
     public static final int VENT_BATTERY_FIELD_NUMBER = 23;
-    private float ventBattery_ = 0F;
+    private float ventBattery_;
     /**
      * <pre>
      * vent valve
@@ -985,7 +1225,7 @@ public final class FrameProtos {
     }
 
     public static final int TANK_PRESSURE_FIELD_NUMBER = 24;
-    private float tankPressure_ = 0F;
+    private float tankPressure_;
     /**
      * <code>required float tank_pressure = 24;</code>
      * @return Whether the tankPressure field is set.
@@ -1004,7 +1244,7 @@ public final class FrameProtos {
     }
 
     public static final int VENT_BYTE_DATA_FIELD_NUMBER = 25;
-    private int ventByteData_ = 0;
+    private int ventByteData_;
     /**
      * <code>required fixed32 vent_byte_data = 25;</code>
      * @return Whether the ventByteData field is set.
@@ -1023,7 +1263,7 @@ public final class FrameProtos {
     }
 
     public static final int TANWA_BATTERY_FIELD_NUMBER = 26;
-    private float tanwaBattery_ = 0F;
+    private float tanwaBattery_;
     /**
      * <pre>
      * tanwa frame
@@ -1050,7 +1290,7 @@ public final class FrameProtos {
     }
 
     public static final int TANWA_BYTE_DATA_FIELD_NUMBER = 27;
-    private int tanwaByteData_ = 0;
+    private int tanwaByteData_;
     /**
      * <code>required fixed32 tanwa_byte_data = 27;</code>
      * @return Whether the tanwaByteData field is set.
@@ -1069,7 +1309,7 @@ public final class FrameProtos {
     }
 
     public static final int TANWA_STATE_FIELD_NUMBER = 28;
-    private int tanwaState_ = 0;
+    private int tanwaState_;
     /**
      * <code>required uint32 tanwa_state = 28;</code>
      * @return Whether the tanwaState field is set.
@@ -1088,7 +1328,7 @@ public final class FrameProtos {
     }
 
     public static final int ROCKET_WEIGHT_FIELD_NUMBER = 29;
-    private float rocketWeight_ = 0F;
+    private float rocketWeight_;
     /**
      * <code>required float rocket_weight = 29;</code>
      * @return Whether the rocketWeight field is set.
@@ -1107,7 +1347,7 @@ public final class FrameProtos {
     }
 
     public static final int TANK_WEIGHT_FIELD_NUMBER = 30;
-    private float tankWeight_ = 0F;
+    private float tankWeight_;
     /**
      * <code>required float tank_weight = 30;</code>
      * @return Whether the tankWeight field is set.
@@ -1125,83 +1365,102 @@ public final class FrameProtos {
       return tankWeight_;
     }
 
-    public static final int TEMPERATURE1_FIELD_NUMBER = 31;
-    private float temperature1_ = 0F;
+    public static final int TEMPERATURE_FILL_FIELD_NUMBER = 31;
+    private float temperatureFill_;
     /**
-     * <code>required float temperature1 = 31;</code>
-     * @return Whether the temperature1 field is set.
+     * <code>required float temperature_fill = 31;</code>
+     * @return Whether the temperatureFill field is set.
      */
     @java.lang.Override
-    public boolean hasTemperature1() {
+    public boolean hasTemperatureFill() {
       return ((bitField0_ & 0x40000000) != 0);
     }
     /**
-     * <code>required float temperature1 = 31;</code>
-     * @return The temperature1.
+     * <code>required float temperature_fill = 31;</code>
+     * @return The temperatureFill.
      */
     @java.lang.Override
-    public float getTemperature1() {
-      return temperature1_;
+    public float getTemperatureFill() {
+      return temperatureFill_;
     }
 
-    public static final int TEMPERATURE2_FIELD_NUMBER = 32;
-    private float temperature2_ = 0F;
+    public static final int PRE_FILL_PRESSURE_FIELD_NUMBER = 32;
+    private float preFillPressure_;
     /**
-     * <code>required float temperature2 = 32;</code>
-     * @return Whether the temperature2 field is set.
+     * <code>required float pre_fill_pressure = 32;</code>
+     * @return Whether the preFillPressure field is set.
      */
     @java.lang.Override
-    public boolean hasTemperature2() {
+    public boolean hasPreFillPressure() {
       return ((bitField0_ & 0x80000000) != 0);
     }
     /**
-     * <code>required float temperature2 = 32;</code>
-     * @return The temperature2.
+     * <code>required float pre_fill_pressure = 32;</code>
+     * @return The preFillPressure.
      */
     @java.lang.Override
-    public float getTemperature2() {
-      return temperature2_;
+    public float getPreFillPressure() {
+      return preFillPressure_;
     }
 
-    public static final int PRESSURE_FIELD_NUMBER = 33;
-    private float pressure_ = 0F;
+    public static final int POST_FILL_PRESSURE_FIELD_NUMBER = 33;
+    private float postFillPressure_;
     /**
-     * <code>required float pressure = 33;</code>
-     * @return Whether the pressure field is set.
+     * <code>required float post_fill_pressure = 33;</code>
+     * @return Whether the postFillPressure field is set.
      */
     @java.lang.Override
-    public boolean hasPressure() {
+    public boolean hasPostFillPressure() {
       return ((bitField1_ & 0x00000001) != 0);
     }
     /**
-     * <code>required float pressure = 33;</code>
-     * @return The pressure.
+     * <code>required float post_fill_pressure = 33;</code>
+     * @return The postFillPressure.
      */
     @java.lang.Override
-    public float getPressure() {
-      return pressure_;
+    public float getPostFillPressure() {
+      return postFillPressure_;
     }
 
-    public static final int PAYLOAD_BATTERY_FIELD_NUMBER = 34;
-    private float payloadBattery_ = 0F;
+    public static final int BTL_PRESSURE_FIELD_NUMBER = 34;
+    private float btlPressure_;
+    /**
+     * <code>required float btl_pressure = 34;</code>
+     * @return Whether the btlPressure field is set.
+     */
+    @java.lang.Override
+    public boolean hasBtlPressure() {
+      return ((bitField1_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>required float btl_pressure = 34;</code>
+     * @return The btlPressure.
+     */
+    @java.lang.Override
+    public float getBtlPressure() {
+      return btlPressure_;
+    }
+
+    public static final int PAYLOAD_BATTERY_FIELD_NUMBER = 35;
+    private float payloadBattery_;
     /**
      * <pre>
-     * payload frame
+     * payload
      * </pre>
      *
-     * <code>required float payload_battery = 34;</code>
+     * <code>required float payload_battery = 35;</code>
      * @return Whether the payloadBattery field is set.
      */
     @java.lang.Override
     public boolean hasPayloadBattery() {
-      return ((bitField1_ & 0x00000002) != 0);
+      return ((bitField1_ & 0x00000004) != 0);
     }
     /**
      * <pre>
-     * payload frame
+     * payload
      * </pre>
      *
-     * <code>required float payload_battery = 34;</code>
+     * <code>required float payload_battery = 35;</code>
      * @return The payloadBattery.
      */
     @java.lang.Override
@@ -1209,18 +1468,18 @@ public final class FrameProtos {
       return payloadBattery_;
     }
 
-    public static final int ESP_NOW_BYTE_DATA_FIELD_NUMBER = 35;
-    private int espNowByteData_ = 0;
+    public static final int ESP_NOW_BYTE_DATA_FIELD_NUMBER = 36;
+    private int espNowByteData_;
     /**
-     * <code>required fixed32 esp_now_byte_data = 35;</code>
+     * <code>required fixed32 esp_now_byte_data = 36;</code>
      * @return Whether the espNowByteData field is set.
      */
     @java.lang.Override
     public boolean hasEspNowByteData() {
-      return ((bitField1_ & 0x00000004) != 0);
+      return ((bitField1_ & 0x00000008) != 0);
     }
     /**
-     * <code>required fixed32 esp_now_byte_data = 35;</code>
+     * <code>required fixed32 esp_now_byte_data = 36;</code>
      * @return The espNowByteData.
      */
     @java.lang.Override
@@ -1228,18 +1487,18 @@ public final class FrameProtos {
       return espNowByteData_;
     }
 
-    public static final int ERRORS_FIELD_NUMBER = 36;
-    private int errors_ = 0;
+    public static final int ERRORS_FIELD_NUMBER = 37;
+    private int errors_;
     /**
-     * <code>required fixed32 errors = 36;</code>
+     * <code>required fixed32 errors = 37;</code>
      * @return Whether the errors field is set.
      */
     @java.lang.Override
     public boolean hasErrors() {
-      return ((bitField1_ & 0x00000008) != 0);
+      return ((bitField1_ & 0x00000010) != 0);
     }
     /**
-     * <code>required fixed32 errors = 36;</code>
+     * <code>required fixed32 errors = 37;</code>
      * @return The errors.
      */
     @java.lang.Override
@@ -1374,15 +1633,19 @@ public final class FrameProtos {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasTemperature1()) {
+      if (!hasTemperatureFill()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasTemperature2()) {
+      if (!hasPreFillPressure()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasPressure()) {
+      if (!hasPostFillPressure()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasBtlPressure()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -1496,24 +1759,27 @@ public final class FrameProtos {
         output.writeFloat(30, tankWeight_);
       }
       if (((bitField0_ & 0x40000000) != 0)) {
-        output.writeFloat(31, temperature1_);
+        output.writeFloat(31, temperatureFill_);
       }
       if (((bitField0_ & 0x80000000) != 0)) {
-        output.writeFloat(32, temperature2_);
+        output.writeFloat(32, preFillPressure_);
       }
       if (((bitField1_ & 0x00000001) != 0)) {
-        output.writeFloat(33, pressure_);
+        output.writeFloat(33, postFillPressure_);
       }
       if (((bitField1_ & 0x00000002) != 0)) {
-        output.writeFloat(34, payloadBattery_);
+        output.writeFloat(34, btlPressure_);
       }
       if (((bitField1_ & 0x00000004) != 0)) {
-        output.writeFixed32(35, espNowByteData_);
+        output.writeFloat(35, payloadBattery_);
       }
       if (((bitField1_ & 0x00000008) != 0)) {
-        output.writeFixed32(36, errors_);
+        output.writeFixed32(36, espNowByteData_);
       }
-      getUnknownFields().writeTo(output);
+      if (((bitField1_ & 0x00000010) != 0)) {
+        output.writeFixed32(37, errors_);
+      }
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1644,29 +1910,33 @@ public final class FrameProtos {
       }
       if (((bitField0_ & 0x40000000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(31, temperature1_);
+          .computeFloatSize(31, temperatureFill_);
       }
       if (((bitField0_ & 0x80000000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(32, temperature2_);
+          .computeFloatSize(32, preFillPressure_);
       }
       if (((bitField1_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(33, pressure_);
+          .computeFloatSize(33, postFillPressure_);
       }
       if (((bitField1_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(34, payloadBattery_);
+          .computeFloatSize(34, btlPressure_);
       }
       if (((bitField1_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFixed32Size(35, espNowByteData_);
+          .computeFloatSize(35, payloadBattery_);
       }
       if (((bitField1_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFixed32Size(36, errors_);
+          .computeFixed32Size(36, espNowByteData_);
       }
-      size += getUnknownFields().getSerializedSize();
+      if (((bitField1_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed32Size(37, errors_);
+      }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1847,23 +2117,29 @@ public final class FrameProtos {
             != java.lang.Float.floatToIntBits(
                 other.getTankWeight())) return false;
       }
-      if (hasTemperature1() != other.hasTemperature1()) return false;
-      if (hasTemperature1()) {
-        if (java.lang.Float.floatToIntBits(getTemperature1())
+      if (hasTemperatureFill() != other.hasTemperatureFill()) return false;
+      if (hasTemperatureFill()) {
+        if (java.lang.Float.floatToIntBits(getTemperatureFill())
             != java.lang.Float.floatToIntBits(
-                other.getTemperature1())) return false;
+                other.getTemperatureFill())) return false;
       }
-      if (hasTemperature2() != other.hasTemperature2()) return false;
-      if (hasTemperature2()) {
-        if (java.lang.Float.floatToIntBits(getTemperature2())
+      if (hasPreFillPressure() != other.hasPreFillPressure()) return false;
+      if (hasPreFillPressure()) {
+        if (java.lang.Float.floatToIntBits(getPreFillPressure())
             != java.lang.Float.floatToIntBits(
-                other.getTemperature2())) return false;
+                other.getPreFillPressure())) return false;
       }
-      if (hasPressure() != other.hasPressure()) return false;
-      if (hasPressure()) {
-        if (java.lang.Float.floatToIntBits(getPressure())
+      if (hasPostFillPressure() != other.hasPostFillPressure()) return false;
+      if (hasPostFillPressure()) {
+        if (java.lang.Float.floatToIntBits(getPostFillPressure())
             != java.lang.Float.floatToIntBits(
-                other.getPressure())) return false;
+                other.getPostFillPressure())) return false;
+      }
+      if (hasBtlPressure() != other.hasBtlPressure()) return false;
+      if (hasBtlPressure()) {
+        if (java.lang.Float.floatToIntBits(getBtlPressure())
+            != java.lang.Float.floatToIntBits(
+                other.getBtlPressure())) return false;
       }
       if (hasPayloadBattery() != other.hasPayloadBattery()) return false;
       if (hasPayloadBattery()) {
@@ -1881,7 +2157,7 @@ public final class FrameProtos {
         if (getErrors()
             != other.getErrors()) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -2028,20 +2304,25 @@ public final class FrameProtos {
         hash = (53 * hash) + java.lang.Float.floatToIntBits(
             getTankWeight());
       }
-      if (hasTemperature1()) {
-        hash = (37 * hash) + TEMPERATURE1_FIELD_NUMBER;
+      if (hasTemperatureFill()) {
+        hash = (37 * hash) + TEMPERATURE_FILL_FIELD_NUMBER;
         hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getTemperature1());
+            getTemperatureFill());
       }
-      if (hasTemperature2()) {
-        hash = (37 * hash) + TEMPERATURE2_FIELD_NUMBER;
+      if (hasPreFillPressure()) {
+        hash = (37 * hash) + PRE_FILL_PRESSURE_FIELD_NUMBER;
         hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getTemperature2());
+            getPreFillPressure());
       }
-      if (hasPressure()) {
-        hash = (37 * hash) + PRESSURE_FIELD_NUMBER;
+      if (hasPostFillPressure()) {
+        hash = (37 * hash) + POST_FILL_PRESSURE_FIELD_NUMBER;
         hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getPressure());
+            getPostFillPressure());
+      }
+      if (hasBtlPressure()) {
+        hash = (37 * hash) + BTL_PRESSURE_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getBtlPressure());
       }
       if (hasPayloadBattery()) {
         hash = (37 * hash) + PAYLOAD_BATTERY_FIELD_NUMBER;
@@ -2056,7 +2337,7 @@ public final class FrameProtos {
         hash = (37 * hash) + ERRORS_FIELD_NUMBER;
         hash = (53 * hash) + getErrors();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2173,55 +2454,96 @@ public final class FrameProtos {
 
       // Construct using pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrame.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        bitField1_ = 0;
         obcState_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
         dcTime_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
         flightTime_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
         mcbBattery_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000008);
         gpsLat_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000010);
         gpsLong_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000020);
         gpsSat_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000040);
         mcbAltitude_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000080);
         mcbVelocity_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000100);
         mcbTemperature_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000200);
         eulerFi_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000400);
         eulerPsi_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000800);
         eulerTheta_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00001000);
         recovPressure1_ = 0;
+        bitField0_ = (bitField0_ & ~0x00002000);
         recovPressure2_ = 0;
+        bitField0_ = (bitField0_ & ~0x00004000);
         recovByteData_ = 0;
+        bitField0_ = (bitField0_ & ~0x00008000);
         pitotBattery_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00010000);
         pitotAltitude_ = 0;
+        bitField0_ = (bitField0_ & ~0x00020000);
         pitotVelocity_ = 0;
+        bitField0_ = (bitField0_ & ~0x00040000);
         pitotTemperature_ = 0;
+        bitField0_ = (bitField0_ & ~0x00080000);
         mvalBattery_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00100000);
         mvalByteData_ = 0;
+        bitField0_ = (bitField0_ & ~0x00200000);
         ventBattery_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00400000);
         tankPressure_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00800000);
         ventByteData_ = 0;
+        bitField0_ = (bitField0_ & ~0x01000000);
         tanwaBattery_ = 0F;
+        bitField0_ = (bitField0_ & ~0x02000000);
         tanwaByteData_ = 0;
+        bitField0_ = (bitField0_ & ~0x04000000);
         tanwaState_ = 0;
+        bitField0_ = (bitField0_ & ~0x08000000);
         rocketWeight_ = 0F;
+        bitField0_ = (bitField0_ & ~0x10000000);
         tankWeight_ = 0F;
-        temperature1_ = 0F;
-        temperature2_ = 0F;
-        pressure_ = 0F;
+        bitField0_ = (bitField0_ & ~0x20000000);
+        temperatureFill_ = 0F;
+        bitField0_ = (bitField0_ & ~0x40000000);
+        preFillPressure_ = 0F;
+        bitField0_ = (bitField0_ & ~0x80000000);
+        postFillPressure_ = 0F;
+        bitField1_ = (bitField1_ & ~0x00000001);
+        btlPressure_ = 0F;
+        bitField1_ = (bitField1_ & ~0x00000002);
         payloadBattery_ = 0F;
+        bitField1_ = (bitField1_ & ~0x00000004);
         espNowByteData_ = 0;
+        bitField1_ = (bitField1_ & ~0x00000008);
         errors_ = 0;
+        bitField1_ = (bitField1_ & ~0x00000010);
         return this;
       }
 
@@ -2248,15 +2570,10 @@ public final class FrameProtos {
       @java.lang.Override
       public pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrame buildPartial() {
         pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrame result = new pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrame(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        if (bitField1_ != 0) { buildPartial1(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartial0(pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrame result) {
         int from_bitField0_ = bitField0_;
+        int from_bitField1_ = bitField1_;
         int to_bitField0_ = 0;
+        int to_bitField1_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.obcState_ = obcState_;
           to_bitField0_ |= 0x00000001;
@@ -2378,38 +2695,71 @@ public final class FrameProtos {
           to_bitField0_ |= 0x20000000;
         }
         if (((from_bitField0_ & 0x40000000) != 0)) {
-          result.temperature1_ = temperature1_;
+          result.temperatureFill_ = temperatureFill_;
           to_bitField0_ |= 0x40000000;
         }
         if (((from_bitField0_ & 0x80000000) != 0)) {
-          result.temperature2_ = temperature2_;
+          result.preFillPressure_ = preFillPressure_;
           to_bitField0_ |= 0x80000000;
         }
-        result.bitField0_ |= to_bitField0_;
-      }
-
-      private void buildPartial1(pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrame result) {
-        int from_bitField1_ = bitField1_;
-        int to_bitField1_ = 0;
         if (((from_bitField1_ & 0x00000001) != 0)) {
-          result.pressure_ = pressure_;
+          result.postFillPressure_ = postFillPressure_;
           to_bitField1_ |= 0x00000001;
         }
         if (((from_bitField1_ & 0x00000002) != 0)) {
-          result.payloadBattery_ = payloadBattery_;
+          result.btlPressure_ = btlPressure_;
           to_bitField1_ |= 0x00000002;
         }
         if (((from_bitField1_ & 0x00000004) != 0)) {
-          result.espNowByteData_ = espNowByteData_;
+          result.payloadBattery_ = payloadBattery_;
           to_bitField1_ |= 0x00000004;
         }
         if (((from_bitField1_ & 0x00000008) != 0)) {
-          result.errors_ = errors_;
+          result.espNowByteData_ = espNowByteData_;
           to_bitField1_ |= 0x00000008;
         }
-        result.bitField1_ |= to_bitField1_;
+        if (((from_bitField1_ & 0x00000010) != 0)) {
+          result.errors_ = errors_;
+          to_bitField1_ |= 0x00000010;
+        }
+        result.bitField0_ = to_bitField0_;
+        result.bitField1_ = to_bitField1_;
+        onBuilt();
+        return result;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrame) {
@@ -2512,14 +2862,17 @@ public final class FrameProtos {
         if (other.hasTankWeight()) {
           setTankWeight(other.getTankWeight());
         }
-        if (other.hasTemperature1()) {
-          setTemperature1(other.getTemperature1());
+        if (other.hasTemperatureFill()) {
+          setTemperatureFill(other.getTemperatureFill());
         }
-        if (other.hasTemperature2()) {
-          setTemperature2(other.getTemperature2());
+        if (other.hasPreFillPressure()) {
+          setPreFillPressure(other.getPreFillPressure());
         }
-        if (other.hasPressure()) {
-          setPressure(other.getPressure());
+        if (other.hasPostFillPressure()) {
+          setPostFillPressure(other.getPostFillPressure());
+        }
+        if (other.hasBtlPressure()) {
+          setBtlPressure(other.getBtlPressure());
         }
         if (other.hasPayloadBattery()) {
           setPayloadBattery(other.getPayloadBattery());
@@ -2530,7 +2883,7 @@ public final class FrameProtos {
         if (other.hasErrors()) {
           setErrors(other.getErrors());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2627,13 +2980,16 @@ public final class FrameProtos {
         if (!hasTankWeight()) {
           return false;
         }
-        if (!hasTemperature1()) {
+        if (!hasTemperatureFill()) {
           return false;
         }
-        if (!hasTemperature2()) {
+        if (!hasPreFillPressure()) {
           return false;
         }
-        if (!hasPressure()) {
+        if (!hasPostFillPressure()) {
+          return false;
+        }
+        if (!hasBtlPressure()) {
           return false;
         }
         if (!hasPayloadBattery()) {
@@ -2653,210 +3009,17 @@ public final class FrameProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrame parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                obcState_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                dcTime_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 24: {
-                flightTime_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 37: {
-                mcbBattery_ = input.readFloat();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 37
-              case 45: {
-                gpsLat_ = input.readFloat();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 45
-              case 53: {
-                gpsLong_ = input.readFloat();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 53
-              case 61: {
-                gpsSat_ = input.readFloat();
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 61
-              case 69: {
-                mcbAltitude_ = input.readFloat();
-                bitField0_ |= 0x00000080;
-                break;
-              } // case 69
-              case 77: {
-                mcbVelocity_ = input.readFloat();
-                bitField0_ |= 0x00000100;
-                break;
-              } // case 77
-              case 80: {
-                mcbTemperature_ = input.readInt32();
-                bitField0_ |= 0x00000200;
-                break;
-              } // case 80
-              case 93: {
-                eulerFi_ = input.readFloat();
-                bitField0_ |= 0x00000400;
-                break;
-              } // case 93
-              case 101: {
-                eulerPsi_ = input.readFloat();
-                bitField0_ |= 0x00000800;
-                break;
-              } // case 101
-              case 109: {
-                eulerTheta_ = input.readFloat();
-                bitField0_ |= 0x00001000;
-                break;
-              } // case 109
-              case 112: {
-                recovPressure1_ = input.readUInt32();
-                bitField0_ |= 0x00002000;
-                break;
-              } // case 112
-              case 120: {
-                recovPressure2_ = input.readUInt32();
-                bitField0_ |= 0x00004000;
-                break;
-              } // case 120
-              case 133: {
-                recovByteData_ = input.readFixed32();
-                bitField0_ |= 0x00008000;
-                break;
-              } // case 133
-              case 141: {
-                pitotBattery_ = input.readFloat();
-                bitField0_ |= 0x00010000;
-                break;
-              } // case 141
-              case 144: {
-                pitotAltitude_ = input.readInt32();
-                bitField0_ |= 0x00020000;
-                break;
-              } // case 144
-              case 152: {
-                pitotVelocity_ = input.readInt32();
-                bitField0_ |= 0x00040000;
-                break;
-              } // case 152
-              case 160: {
-                pitotTemperature_ = input.readInt32();
-                bitField0_ |= 0x00080000;
-                break;
-              } // case 160
-              case 173: {
-                mvalBattery_ = input.readFloat();
-                bitField0_ |= 0x00100000;
-                break;
-              } // case 173
-              case 181: {
-                mvalByteData_ = input.readFixed32();
-                bitField0_ |= 0x00200000;
-                break;
-              } // case 181
-              case 189: {
-                ventBattery_ = input.readFloat();
-                bitField0_ |= 0x00400000;
-                break;
-              } // case 189
-              case 197: {
-                tankPressure_ = input.readFloat();
-                bitField0_ |= 0x00800000;
-                break;
-              } // case 197
-              case 205: {
-                ventByteData_ = input.readFixed32();
-                bitField0_ |= 0x01000000;
-                break;
-              } // case 205
-              case 213: {
-                tanwaBattery_ = input.readFloat();
-                bitField0_ |= 0x02000000;
-                break;
-              } // case 213
-              case 221: {
-                tanwaByteData_ = input.readFixed32();
-                bitField0_ |= 0x04000000;
-                break;
-              } // case 221
-              case 224: {
-                tanwaState_ = input.readUInt32();
-                bitField0_ |= 0x08000000;
-                break;
-              } // case 224
-              case 237: {
-                rocketWeight_ = input.readFloat();
-                bitField0_ |= 0x10000000;
-                break;
-              } // case 237
-              case 245: {
-                tankWeight_ = input.readFloat();
-                bitField0_ |= 0x20000000;
-                break;
-              } // case 245
-              case 253: {
-                temperature1_ = input.readFloat();
-                bitField0_ |= 0x40000000;
-                break;
-              } // case 253
-              case 261: {
-                temperature2_ = input.readFloat();
-                bitField0_ |= 0x80000000;
-                break;
-              } // case 261
-              case 269: {
-                pressure_ = input.readFloat();
-                bitField1_ |= 0x00000001;
-                break;
-              } // case 269
-              case 277: {
-                payloadBattery_ = input.readFloat();
-                bitField1_ |= 0x00000002;
-                break;
-              } // case 277
-              case 285: {
-                espNowByteData_ = input.readFixed32();
-                bitField1_ |= 0x00000004;
-                break;
-              } // case 285
-              case 293: {
-                errors_ = input.readFixed32();
-                bitField1_ |= 0x00000008;
-                break;
-              } // case 293
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrame) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -2897,9 +3060,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setObcState(int value) {
-
-        obcState_ = value;
         bitField0_ |= 0x00000001;
+        obcState_ = value;
         onChanged();
         return this;
       }
@@ -2941,9 +3103,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setDcTime(int value) {
-
-        dcTime_ = value;
         bitField0_ |= 0x00000002;
+        dcTime_ = value;
         onChanged();
         return this;
       }
@@ -2981,9 +3142,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setFlightTime(int value) {
-
-        flightTime_ = value;
         bitField0_ |= 0x00000004;
+        flightTime_ = value;
         onChanged();
         return this;
       }
@@ -3021,9 +3181,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setMcbBattery(float value) {
-
-        mcbBattery_ = value;
         bitField0_ |= 0x00000008;
+        mcbBattery_ = value;
         onChanged();
         return this;
       }
@@ -3061,9 +3220,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setGpsLat(float value) {
-
-        gpsLat_ = value;
         bitField0_ |= 0x00000010;
+        gpsLat_ = value;
         onChanged();
         return this;
       }
@@ -3101,9 +3259,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setGpsLong(float value) {
-
-        gpsLong_ = value;
         bitField0_ |= 0x00000020;
+        gpsLong_ = value;
         onChanged();
         return this;
       }
@@ -3141,9 +3298,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setGpsSat(float value) {
-
-        gpsSat_ = value;
         bitField0_ |= 0x00000040;
+        gpsSat_ = value;
         onChanged();
         return this;
       }
@@ -3181,9 +3337,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setMcbAltitude(float value) {
-
-        mcbAltitude_ = value;
         bitField0_ |= 0x00000080;
+        mcbAltitude_ = value;
         onChanged();
         return this;
       }
@@ -3221,9 +3376,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setMcbVelocity(float value) {
-
-        mcbVelocity_ = value;
         bitField0_ |= 0x00000100;
+        mcbVelocity_ = value;
         onChanged();
         return this;
       }
@@ -3261,9 +3415,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setMcbTemperature(int value) {
-
-        mcbTemperature_ = value;
         bitField0_ |= 0x00000200;
+        mcbTemperature_ = value;
         onChanged();
         return this;
       }
@@ -3301,9 +3454,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setEulerFi(float value) {
-
-        eulerFi_ = value;
         bitField0_ |= 0x00000400;
+        eulerFi_ = value;
         onChanged();
         return this;
       }
@@ -3341,9 +3493,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setEulerPsi(float value) {
-
-        eulerPsi_ = value;
         bitField0_ |= 0x00000800;
+        eulerPsi_ = value;
         onChanged();
         return this;
       }
@@ -3381,9 +3532,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setEulerTheta(float value) {
-
-        eulerTheta_ = value;
         bitField0_ |= 0x00001000;
+        eulerTheta_ = value;
         onChanged();
         return this;
       }
@@ -3433,9 +3583,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setRecovPressure1(int value) {
-
-        recovPressure1_ = value;
         bitField0_ |= 0x00002000;
+        recovPressure1_ = value;
         onChanged();
         return this;
       }
@@ -3477,9 +3626,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setRecovPressure2(int value) {
-
-        recovPressure2_ = value;
         bitField0_ |= 0x00004000;
+        recovPressure2_ = value;
         onChanged();
         return this;
       }
@@ -3517,9 +3665,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setRecovByteData(int value) {
-
-        recovByteData_ = value;
         bitField0_ |= 0x00008000;
+        recovByteData_ = value;
         onChanged();
         return this;
       }
@@ -3569,9 +3716,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setPitotBattery(float value) {
-
-        pitotBattery_ = value;
         bitField0_ |= 0x00010000;
+        pitotBattery_ = value;
         onChanged();
         return this;
       }
@@ -3613,9 +3759,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setPitotAltitude(int value) {
-
-        pitotAltitude_ = value;
         bitField0_ |= 0x00020000;
+        pitotAltitude_ = value;
         onChanged();
         return this;
       }
@@ -3653,9 +3798,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setPitotVelocity(int value) {
-
-        pitotVelocity_ = value;
         bitField0_ |= 0x00040000;
+        pitotVelocity_ = value;
         onChanged();
         return this;
       }
@@ -3693,9 +3837,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setPitotTemperature(int value) {
-
-        pitotTemperature_ = value;
         bitField0_ |= 0x00080000;
+        pitotTemperature_ = value;
         onChanged();
         return this;
       }
@@ -3745,9 +3888,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setMvalBattery(float value) {
-
-        mvalBattery_ = value;
         bitField0_ |= 0x00100000;
+        mvalBattery_ = value;
         onChanged();
         return this;
       }
@@ -3789,9 +3931,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setMvalByteData(int value) {
-
-        mvalByteData_ = value;
         bitField0_ |= 0x00200000;
+        mvalByteData_ = value;
         onChanged();
         return this;
       }
@@ -3841,9 +3982,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setVentBattery(float value) {
-
-        ventBattery_ = value;
         bitField0_ |= 0x00400000;
+        ventBattery_ = value;
         onChanged();
         return this;
       }
@@ -3885,9 +4025,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setTankPressure(float value) {
-
-        tankPressure_ = value;
         bitField0_ |= 0x00800000;
+        tankPressure_ = value;
         onChanged();
         return this;
       }
@@ -3925,9 +4064,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setVentByteData(int value) {
-
-        ventByteData_ = value;
         bitField0_ |= 0x01000000;
+        ventByteData_ = value;
         onChanged();
         return this;
       }
@@ -3977,9 +4115,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setTanwaBattery(float value) {
-
-        tanwaBattery_ = value;
         bitField0_ |= 0x02000000;
+        tanwaBattery_ = value;
         onChanged();
         return this;
       }
@@ -4021,9 +4158,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setTanwaByteData(int value) {
-
-        tanwaByteData_ = value;
         bitField0_ |= 0x04000000;
+        tanwaByteData_ = value;
         onChanged();
         return this;
       }
@@ -4061,9 +4197,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setTanwaState(int value) {
-
-        tanwaState_ = value;
         bitField0_ |= 0x08000000;
+        tanwaState_ = value;
         onChanged();
         return this;
       }
@@ -4101,9 +4236,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setRocketWeight(float value) {
-
-        rocketWeight_ = value;
         bitField0_ |= 0x10000000;
+        rocketWeight_ = value;
         onChanged();
         return this;
       }
@@ -4141,9 +4275,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setTankWeight(float value) {
-
-        tankWeight_ = value;
         bitField0_ |= 0x20000000;
+        tankWeight_ = value;
         onChanged();
         return this;
       }
@@ -4158,122 +4291,158 @@ public final class FrameProtos {
         return this;
       }
 
-      private float temperature1_ ;
+      private float temperatureFill_ ;
       /**
-       * <code>required float temperature1 = 31;</code>
-       * @return Whether the temperature1 field is set.
+       * <code>required float temperature_fill = 31;</code>
+       * @return Whether the temperatureFill field is set.
        */
       @java.lang.Override
-      public boolean hasTemperature1() {
+      public boolean hasTemperatureFill() {
         return ((bitField0_ & 0x40000000) != 0);
       }
       /**
-       * <code>required float temperature1 = 31;</code>
-       * @return The temperature1.
+       * <code>required float temperature_fill = 31;</code>
+       * @return The temperatureFill.
        */
       @java.lang.Override
-      public float getTemperature1() {
-        return temperature1_;
+      public float getTemperatureFill() {
+        return temperatureFill_;
       }
       /**
-       * <code>required float temperature1 = 31;</code>
-       * @param value The temperature1 to set.
+       * <code>required float temperature_fill = 31;</code>
+       * @param value The temperatureFill to set.
        * @return This builder for chaining.
        */
-      public Builder setTemperature1(float value) {
-
-        temperature1_ = value;
+      public Builder setTemperatureFill(float value) {
         bitField0_ |= 0x40000000;
+        temperatureFill_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required float temperature1 = 31;</code>
+       * <code>required float temperature_fill = 31;</code>
        * @return This builder for chaining.
        */
-      public Builder clearTemperature1() {
+      public Builder clearTemperatureFill() {
         bitField0_ = (bitField0_ & ~0x40000000);
-        temperature1_ = 0F;
+        temperatureFill_ = 0F;
         onChanged();
         return this;
       }
 
-      private float temperature2_ ;
+      private float preFillPressure_ ;
       /**
-       * <code>required float temperature2 = 32;</code>
-       * @return Whether the temperature2 field is set.
+       * <code>required float pre_fill_pressure = 32;</code>
+       * @return Whether the preFillPressure field is set.
        */
       @java.lang.Override
-      public boolean hasTemperature2() {
+      public boolean hasPreFillPressure() {
         return ((bitField0_ & 0x80000000) != 0);
       }
       /**
-       * <code>required float temperature2 = 32;</code>
-       * @return The temperature2.
+       * <code>required float pre_fill_pressure = 32;</code>
+       * @return The preFillPressure.
        */
       @java.lang.Override
-      public float getTemperature2() {
-        return temperature2_;
+      public float getPreFillPressure() {
+        return preFillPressure_;
       }
       /**
-       * <code>required float temperature2 = 32;</code>
-       * @param value The temperature2 to set.
+       * <code>required float pre_fill_pressure = 32;</code>
+       * @param value The preFillPressure to set.
        * @return This builder for chaining.
        */
-      public Builder setTemperature2(float value) {
-
-        temperature2_ = value;
+      public Builder setPreFillPressure(float value) {
         bitField0_ |= 0x80000000;
+        preFillPressure_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required float temperature2 = 32;</code>
+       * <code>required float pre_fill_pressure = 32;</code>
        * @return This builder for chaining.
        */
-      public Builder clearTemperature2() {
+      public Builder clearPreFillPressure() {
         bitField0_ = (bitField0_ & ~0x80000000);
-        temperature2_ = 0F;
+        preFillPressure_ = 0F;
         onChanged();
         return this;
       }
 
-      private float pressure_ ;
+      private float postFillPressure_ ;
       /**
-       * <code>required float pressure = 33;</code>
-       * @return Whether the pressure field is set.
+       * <code>required float post_fill_pressure = 33;</code>
+       * @return Whether the postFillPressure field is set.
        */
       @java.lang.Override
-      public boolean hasPressure() {
+      public boolean hasPostFillPressure() {
         return ((bitField1_ & 0x00000001) != 0);
       }
       /**
-       * <code>required float pressure = 33;</code>
-       * @return The pressure.
+       * <code>required float post_fill_pressure = 33;</code>
+       * @return The postFillPressure.
        */
       @java.lang.Override
-      public float getPressure() {
-        return pressure_;
+      public float getPostFillPressure() {
+        return postFillPressure_;
       }
       /**
-       * <code>required float pressure = 33;</code>
-       * @param value The pressure to set.
+       * <code>required float post_fill_pressure = 33;</code>
+       * @param value The postFillPressure to set.
        * @return This builder for chaining.
        */
-      public Builder setPressure(float value) {
-
-        pressure_ = value;
+      public Builder setPostFillPressure(float value) {
         bitField1_ |= 0x00000001;
+        postFillPressure_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required float pressure = 33;</code>
+       * <code>required float post_fill_pressure = 33;</code>
        * @return This builder for chaining.
        */
-      public Builder clearPressure() {
+      public Builder clearPostFillPressure() {
         bitField1_ = (bitField1_ & ~0x00000001);
-        pressure_ = 0F;
+        postFillPressure_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float btlPressure_ ;
+      /**
+       * <code>required float btl_pressure = 34;</code>
+       * @return Whether the btlPressure field is set.
+       */
+      @java.lang.Override
+      public boolean hasBtlPressure() {
+        return ((bitField1_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>required float btl_pressure = 34;</code>
+       * @return The btlPressure.
+       */
+      @java.lang.Override
+      public float getBtlPressure() {
+        return btlPressure_;
+      }
+      /**
+       * <code>required float btl_pressure = 34;</code>
+       * @param value The btlPressure to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBtlPressure(float value) {
+        bitField1_ |= 0x00000002;
+        btlPressure_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required float btl_pressure = 34;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBtlPressure() {
+        bitField1_ = (bitField1_ & ~0x00000002);
+        btlPressure_ = 0F;
         onChanged();
         return this;
       }
@@ -4281,22 +4450,22 @@ public final class FrameProtos {
       private float payloadBattery_ ;
       /**
        * <pre>
-       * payload frame
+       * payload
        * </pre>
        *
-       * <code>required float payload_battery = 34;</code>
+       * <code>required float payload_battery = 35;</code>
        * @return Whether the payloadBattery field is set.
        */
       @java.lang.Override
       public boolean hasPayloadBattery() {
-        return ((bitField1_ & 0x00000002) != 0);
+        return ((bitField1_ & 0x00000004) != 0);
       }
       /**
        * <pre>
-       * payload frame
+       * payload
        * </pre>
        *
-       * <code>required float payload_battery = 34;</code>
+       * <code>required float payload_battery = 35;</code>
        * @return The payloadBattery.
        */
       @java.lang.Override
@@ -4305,30 +4474,29 @@ public final class FrameProtos {
       }
       /**
        * <pre>
-       * payload frame
+       * payload
        * </pre>
        *
-       * <code>required float payload_battery = 34;</code>
+       * <code>required float payload_battery = 35;</code>
        * @param value The payloadBattery to set.
        * @return This builder for chaining.
        */
       public Builder setPayloadBattery(float value) {
-
+        bitField1_ |= 0x00000004;
         payloadBattery_ = value;
-        bitField1_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * payload frame
+       * payload
        * </pre>
        *
-       * <code>required float payload_battery = 34;</code>
+       * <code>required float payload_battery = 35;</code>
        * @return This builder for chaining.
        */
       public Builder clearPayloadBattery() {
-        bitField1_ = (bitField1_ & ~0x00000002);
+        bitField1_ = (bitField1_ & ~0x00000004);
         payloadBattery_ = 0F;
         onChanged();
         return this;
@@ -4336,15 +4504,15 @@ public final class FrameProtos {
 
       private int espNowByteData_ ;
       /**
-       * <code>required fixed32 esp_now_byte_data = 35;</code>
+       * <code>required fixed32 esp_now_byte_data = 36;</code>
        * @return Whether the espNowByteData field is set.
        */
       @java.lang.Override
       public boolean hasEspNowByteData() {
-        return ((bitField1_ & 0x00000004) != 0);
+        return ((bitField1_ & 0x00000008) != 0);
       }
       /**
-       * <code>required fixed32 esp_now_byte_data = 35;</code>
+       * <code>required fixed32 esp_now_byte_data = 36;</code>
        * @return The espNowByteData.
        */
       @java.lang.Override
@@ -4352,23 +4520,22 @@ public final class FrameProtos {
         return espNowByteData_;
       }
       /**
-       * <code>required fixed32 esp_now_byte_data = 35;</code>
+       * <code>required fixed32 esp_now_byte_data = 36;</code>
        * @param value The espNowByteData to set.
        * @return This builder for chaining.
        */
       public Builder setEspNowByteData(int value) {
-
+        bitField1_ |= 0x00000008;
         espNowByteData_ = value;
-        bitField1_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
-       * <code>required fixed32 esp_now_byte_data = 35;</code>
+       * <code>required fixed32 esp_now_byte_data = 36;</code>
        * @return This builder for chaining.
        */
       public Builder clearEspNowByteData() {
-        bitField1_ = (bitField1_ & ~0x00000004);
+        bitField1_ = (bitField1_ & ~0x00000008);
         espNowByteData_ = 0;
         onChanged();
         return this;
@@ -4376,15 +4543,15 @@ public final class FrameProtos {
 
       private int errors_ ;
       /**
-       * <code>required fixed32 errors = 36;</code>
+       * <code>required fixed32 errors = 37;</code>
        * @return Whether the errors field is set.
        */
       @java.lang.Override
       public boolean hasErrors() {
-        return ((bitField1_ & 0x00000008) != 0);
+        return ((bitField1_ & 0x00000010) != 0);
       }
       /**
-       * <code>required fixed32 errors = 36;</code>
+       * <code>required fixed32 errors = 37;</code>
        * @return The errors.
        */
       @java.lang.Override
@@ -4392,23 +4559,22 @@ public final class FrameProtos {
         return errors_;
       }
       /**
-       * <code>required fixed32 errors = 36;</code>
+       * <code>required fixed32 errors = 37;</code>
        * @param value The errors to set.
        * @return This builder for chaining.
        */
       public Builder setErrors(int value) {
-
+        bitField1_ |= 0x00000010;
         errors_ = value;
-        bitField1_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
-       * <code>required fixed32 errors = 36;</code>
+       * <code>required fixed32 errors = 37;</code>
        * @return This builder for chaining.
        */
       public Builder clearErrors() {
-        bitField1_ = (bitField1_ & ~0x00000008);
+        bitField1_ = (bitField1_ & ~0x00000010);
         errors_ = 0;
         onChanged();
         return this;
@@ -4446,18 +4612,7 @@ public final class FrameProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new LoRaFrame(input, extensionRegistry);
       }
     };
 
@@ -4798,6 +4953,174 @@ public final class FrameProtos {
       return new LoRaFrameTanwa();
     }
 
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LoRaFrameTanwa(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              tanWaState_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              pressureSensor_ = input.readUInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              solenoidFill_ = input.readUInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              solenoidDepr_ = input.readUInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              abortButton_ = input.readBool();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              igniterContinouity1_ = input.readBool();
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000040;
+              igniterContinouity2_ = input.readBool();
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000080;
+              hxRequestRCK_ = input.readUInt32();
+              break;
+            }
+            case 72: {
+              bitField0_ |= 0x00000100;
+              hxRequestTANK_ = input.readUInt32();
+              break;
+            }
+            case 85: {
+              bitField0_ |= 0x00000200;
+              vbat_ = input.readFloat();
+              break;
+            }
+            case 88: {
+              bitField0_ |= 0x00000400;
+              motorState1_ = input.readUInt32();
+              break;
+            }
+            case 96: {
+              bitField0_ |= 0x00000800;
+              motorState2_ = input.readUInt32();
+              break;
+            }
+            case 104: {
+              bitField0_ |= 0x00001000;
+              motorState3_ = input.readUInt32();
+              break;
+            }
+            case 112: {
+              bitField0_ |= 0x00002000;
+              motorState4_ = input.readUInt32();
+              break;
+            }
+            case 120: {
+              bitField0_ |= 0x00004000;
+              rocketWeightBlink_ = input.readUInt32();
+              break;
+            }
+            case 133: {
+              bitField0_ |= 0x00008000;
+              rocketWeightTemp_ = input.readFloat();
+              break;
+            }
+            case 136: {
+              bitField0_ |= 0x00010000;
+              tankWeightBlink_ = input.readUInt32();
+              break;
+            }
+            case 149: {
+              bitField0_ |= 0x00020000;
+              tankWeightTemp_ = input.readFloat();
+              break;
+            }
+            case 157: {
+              bitField0_ |= 0x00040000;
+              rocketWeightVal_ = input.readFloat();
+              break;
+            }
+            case 165: {
+              bitField0_ |= 0x00080000;
+              tankWeightVal_ = input.readFloat();
+              break;
+            }
+            case 168: {
+              bitField0_ |= 0x00100000;
+              rocketWeightRawVal_ = input.readUInt32();
+              break;
+            }
+            case 176: {
+              bitField0_ |= 0x00200000;
+              tankWeightRawVal_ = input.readUInt32();
+              break;
+            }
+            case 184: {
+              bitField0_ |= 0x00400000;
+              interfaceRck_ = input.readBool();
+              break;
+            }
+            case 192: {
+              bitField0_ |= 0x00800000;
+              interfaceTank_ = input.readBool();
+              break;
+            }
+            case 200: {
+              bitField0_ |= 0x01000000;
+              interfaceMcu_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.internal_static_LoRaFrameTanwa_descriptor;
@@ -4813,7 +5136,7 @@ public final class FrameProtos {
 
     private int bitField0_;
     public static final int TANWASTATE_FIELD_NUMBER = 1;
-    private int tanWaState_ = 0;
+    private int tanWaState_;
     /**
      * <code>required uint32 tanWaState = 1;</code>
      * @return Whether the tanWaState field is set.
@@ -4832,7 +5155,7 @@ public final class FrameProtos {
     }
 
     public static final int PRESSURESENSOR_FIELD_NUMBER = 2;
-    private int pressureSensor_ = 0;
+    private int pressureSensor_;
     /**
      * <code>required uint32 pressureSensor = 2;</code>
      * @return Whether the pressureSensor field is set.
@@ -4851,7 +5174,7 @@ public final class FrameProtos {
     }
 
     public static final int SOLENOID_FILL_FIELD_NUMBER = 3;
-    private int solenoidFill_ = 0;
+    private int solenoidFill_;
     /**
      * <code>required uint32 solenoid_fill = 3;</code>
      * @return Whether the solenoidFill field is set.
@@ -4870,7 +5193,7 @@ public final class FrameProtos {
     }
 
     public static final int SOLENOID_DEPR_FIELD_NUMBER = 4;
-    private int solenoidDepr_ = 0;
+    private int solenoidDepr_;
     /**
      * <code>required uint32 solenoid_depr = 4;</code>
      * @return Whether the solenoidDepr field is set.
@@ -4889,7 +5212,7 @@ public final class FrameProtos {
     }
 
     public static final int ABORTBUTTON_FIELD_NUMBER = 5;
-    private boolean abortButton_ = false;
+    private boolean abortButton_;
     /**
      * <code>required bool abortButton = 5;</code>
      * @return Whether the abortButton field is set.
@@ -4908,7 +5231,7 @@ public final class FrameProtos {
     }
 
     public static final int IGNITERCONTINOUITY_1_FIELD_NUMBER = 6;
-    private boolean igniterContinouity1_ = false;
+    private boolean igniterContinouity1_;
     /**
      * <code>required bool igniterContinouity_1 = 6;</code>
      * @return Whether the igniterContinouity1 field is set.
@@ -4927,7 +5250,7 @@ public final class FrameProtos {
     }
 
     public static final int IGNITERCONTINOUITY_2_FIELD_NUMBER = 7;
-    private boolean igniterContinouity2_ = false;
+    private boolean igniterContinouity2_;
     /**
      * <code>required bool igniterContinouity_2 = 7;</code>
      * @return Whether the igniterContinouity2 field is set.
@@ -4946,7 +5269,7 @@ public final class FrameProtos {
     }
 
     public static final int HXREQUEST_RCK_FIELD_NUMBER = 8;
-    private int hxRequestRCK_ = 0;
+    private int hxRequestRCK_;
     /**
      * <pre>
      * arduino string
@@ -4973,7 +5296,7 @@ public final class FrameProtos {
     }
 
     public static final int HXREQUEST_TANK_FIELD_NUMBER = 9;
-    private int hxRequestTANK_ = 0;
+    private int hxRequestTANK_;
     /**
      * <pre>
      * arduino string
@@ -5000,7 +5323,7 @@ public final class FrameProtos {
     }
 
     public static final int VBAT_FIELD_NUMBER = 10;
-    private float vbat_ = 0F;
+    private float vbat_;
     /**
      * <code>required float vbat = 10;</code>
      * @return Whether the vbat field is set.
@@ -5019,7 +5342,7 @@ public final class FrameProtos {
     }
 
     public static final int MOTORSTATE_1_FIELD_NUMBER = 11;
-    private int motorState1_ = 0;
+    private int motorState1_;
     /**
      * <code>required uint32 motorState_1 = 11;</code>
      * @return Whether the motorState1 field is set.
@@ -5038,7 +5361,7 @@ public final class FrameProtos {
     }
 
     public static final int MOTORSTATE_2_FIELD_NUMBER = 12;
-    private int motorState2_ = 0;
+    private int motorState2_;
     /**
      * <code>required uint32 motorState_2 = 12;</code>
      * @return Whether the motorState2 field is set.
@@ -5057,7 +5380,7 @@ public final class FrameProtos {
     }
 
     public static final int MOTORSTATE_3_FIELD_NUMBER = 13;
-    private int motorState3_ = 0;
+    private int motorState3_;
     /**
      * <code>required uint32 motorState_3 = 13;</code>
      * @return Whether the motorState3 field is set.
@@ -5076,7 +5399,7 @@ public final class FrameProtos {
     }
 
     public static final int MOTORSTATE_4_FIELD_NUMBER = 14;
-    private int motorState4_ = 0;
+    private int motorState4_;
     /**
      * <code>required uint32 motorState_4 = 14;</code>
      * @return Whether the motorState4 field is set.
@@ -5095,7 +5418,7 @@ public final class FrameProtos {
     }
 
     public static final int ROCKETWEIGHT_BLINK_FIELD_NUMBER = 15;
-    private int rocketWeightBlink_ = 0;
+    private int rocketWeightBlink_;
     /**
      * <code>required uint32 rocketWeight_blink = 15;</code>
      * @return Whether the rocketWeightBlink field is set.
@@ -5114,7 +5437,7 @@ public final class FrameProtos {
     }
 
     public static final int ROCKETWEIGHT_TEMP_FIELD_NUMBER = 16;
-    private float rocketWeightTemp_ = 0F;
+    private float rocketWeightTemp_;
     /**
      * <code>required float rocketWeight_temp = 16;</code>
      * @return Whether the rocketWeightTemp field is set.
@@ -5133,7 +5456,7 @@ public final class FrameProtos {
     }
 
     public static final int TANKWEIGHT_BLINK_FIELD_NUMBER = 17;
-    private int tankWeightBlink_ = 0;
+    private int tankWeightBlink_;
     /**
      * <code>required uint32 tankWeight_blink = 17;</code>
      * @return Whether the tankWeightBlink field is set.
@@ -5152,7 +5475,7 @@ public final class FrameProtos {
     }
 
     public static final int TANKWEIGHT_TEMP_FIELD_NUMBER = 18;
-    private float tankWeightTemp_ = 0F;
+    private float tankWeightTemp_;
     /**
      * <code>required float tankWeight_temp = 18;</code>
      * @return Whether the tankWeightTemp field is set.
@@ -5171,7 +5494,7 @@ public final class FrameProtos {
     }
 
     public static final int ROCKETWEIGHT_VAL_FIELD_NUMBER = 19;
-    private float rocketWeightVal_ = 0F;
+    private float rocketWeightVal_;
     /**
      * <code>required float rocketWeight_val = 19;</code>
      * @return Whether the rocketWeightVal field is set.
@@ -5190,7 +5513,7 @@ public final class FrameProtos {
     }
 
     public static final int TANKWEIGHT_VAL_FIELD_NUMBER = 20;
-    private float tankWeightVal_ = 0F;
+    private float tankWeightVal_;
     /**
      * <code>required float tankWeight_val = 20;</code>
      * @return Whether the tankWeightVal field is set.
@@ -5209,7 +5532,7 @@ public final class FrameProtos {
     }
 
     public static final int ROCKETWEIGHTRAW_VAL_FIELD_NUMBER = 21;
-    private int rocketWeightRawVal_ = 0;
+    private int rocketWeightRawVal_;
     /**
      * <code>required uint32 rocketWeightRaw_val = 21;</code>
      * @return Whether the rocketWeightRawVal field is set.
@@ -5228,7 +5551,7 @@ public final class FrameProtos {
     }
 
     public static final int TANKWEIGHTRAW_VAL_FIELD_NUMBER = 22;
-    private int tankWeightRawVal_ = 0;
+    private int tankWeightRawVal_;
     /**
      * <code>required uint32 tankWeightRaw_val = 22;</code>
      * @return Whether the tankWeightRawVal field is set.
@@ -5247,7 +5570,7 @@ public final class FrameProtos {
     }
 
     public static final int INTERFACE_RCK_FIELD_NUMBER = 23;
-    private boolean interfaceRck_ = false;
+    private boolean interfaceRck_;
     /**
      * <code>required bool interface_rck = 23;</code>
      * @return Whether the interfaceRck field is set.
@@ -5266,7 +5589,7 @@ public final class FrameProtos {
     }
 
     public static final int INTERFACE_TANK_FIELD_NUMBER = 24;
-    private boolean interfaceTank_ = false;
+    private boolean interfaceTank_;
     /**
      * <code>required bool interface_tank = 24;</code>
      * @return Whether the interfaceTank field is set.
@@ -5285,7 +5608,7 @@ public final class FrameProtos {
     }
 
     public static final int INTERFACE_MCU_FIELD_NUMBER = 25;
-    private boolean interfaceMcu_ = false;
+    private boolean interfaceMcu_;
     /**
      * <code>required bool interface_mcu = 25;</code>
      * @return Whether the interfaceMcu field is set.
@@ -5492,7 +5815,7 @@ public final class FrameProtos {
       if (((bitField0_ & 0x01000000) != 0)) {
         output.writeBool(25, interfaceMcu_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -5601,7 +5924,7 @@ public final class FrameProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(25, interfaceMcu_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5746,7 +6069,7 @@ public final class FrameProtos {
         if (getInterfaceMcu()
             != other.getInterfaceMcu()) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -5868,7 +6191,7 @@ public final class FrameProtos {
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getInterfaceMcu());
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5989,43 +6312,72 @@ public final class FrameProtos {
 
       // Construct using pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrameTanwa.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         tanWaState_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
         pressureSensor_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
         solenoidFill_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
         solenoidDepr_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
         abortButton_ = false;
+        bitField0_ = (bitField0_ & ~0x00000010);
         igniterContinouity1_ = false;
+        bitField0_ = (bitField0_ & ~0x00000020);
         igniterContinouity2_ = false;
+        bitField0_ = (bitField0_ & ~0x00000040);
         hxRequestRCK_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000080);
         hxRequestTANK_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000100);
         vbat_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000200);
         motorState1_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000400);
         motorState2_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000800);
         motorState3_ = 0;
+        bitField0_ = (bitField0_ & ~0x00001000);
         motorState4_ = 0;
+        bitField0_ = (bitField0_ & ~0x00002000);
         rocketWeightBlink_ = 0;
+        bitField0_ = (bitField0_ & ~0x00004000);
         rocketWeightTemp_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00008000);
         tankWeightBlink_ = 0;
+        bitField0_ = (bitField0_ & ~0x00010000);
         tankWeightTemp_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00020000);
         rocketWeightVal_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00040000);
         tankWeightVal_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00080000);
         rocketWeightRawVal_ = 0;
+        bitField0_ = (bitField0_ & ~0x00100000);
         tankWeightRawVal_ = 0;
+        bitField0_ = (bitField0_ & ~0x00200000);
         interfaceRck_ = false;
+        bitField0_ = (bitField0_ & ~0x00400000);
         interfaceTank_ = false;
+        bitField0_ = (bitField0_ & ~0x00800000);
         interfaceMcu_ = false;
+        bitField0_ = (bitField0_ & ~0x01000000);
         return this;
       }
 
@@ -6052,12 +6404,6 @@ public final class FrameProtos {
       @java.lang.Override
       public pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrameTanwa buildPartial() {
         pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrameTanwa result = new pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrameTanwa(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartial0(pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrameTanwa result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -6160,9 +6506,43 @@ public final class FrameProtos {
           result.interfaceMcu_ = interfaceMcu_;
           to_bitField0_ |= 0x01000000;
         }
-        result.bitField0_ |= to_bitField0_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrameTanwa) {
@@ -6250,7 +6630,7 @@ public final class FrameProtos {
         if (other.hasInterfaceMcu()) {
           setInterfaceMcu(other.getInterfaceMcu());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -6340,155 +6720,17 @@ public final class FrameProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrameTanwa parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                tanWaState_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                pressureSensor_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 24: {
-                solenoidFill_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 32: {
-                solenoidDepr_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              case 40: {
-                abortButton_ = input.readBool();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 40
-              case 48: {
-                igniterContinouity1_ = input.readBool();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 48
-              case 56: {
-                igniterContinouity2_ = input.readBool();
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 56
-              case 64: {
-                hxRequestRCK_ = input.readUInt32();
-                bitField0_ |= 0x00000080;
-                break;
-              } // case 64
-              case 72: {
-                hxRequestTANK_ = input.readUInt32();
-                bitField0_ |= 0x00000100;
-                break;
-              } // case 72
-              case 85: {
-                vbat_ = input.readFloat();
-                bitField0_ |= 0x00000200;
-                break;
-              } // case 85
-              case 88: {
-                motorState1_ = input.readUInt32();
-                bitField0_ |= 0x00000400;
-                break;
-              } // case 88
-              case 96: {
-                motorState2_ = input.readUInt32();
-                bitField0_ |= 0x00000800;
-                break;
-              } // case 96
-              case 104: {
-                motorState3_ = input.readUInt32();
-                bitField0_ |= 0x00001000;
-                break;
-              } // case 104
-              case 112: {
-                motorState4_ = input.readUInt32();
-                bitField0_ |= 0x00002000;
-                break;
-              } // case 112
-              case 120: {
-                rocketWeightBlink_ = input.readUInt32();
-                bitField0_ |= 0x00004000;
-                break;
-              } // case 120
-              case 133: {
-                rocketWeightTemp_ = input.readFloat();
-                bitField0_ |= 0x00008000;
-                break;
-              } // case 133
-              case 136: {
-                tankWeightBlink_ = input.readUInt32();
-                bitField0_ |= 0x00010000;
-                break;
-              } // case 136
-              case 149: {
-                tankWeightTemp_ = input.readFloat();
-                bitField0_ |= 0x00020000;
-                break;
-              } // case 149
-              case 157: {
-                rocketWeightVal_ = input.readFloat();
-                bitField0_ |= 0x00040000;
-                break;
-              } // case 157
-              case 165: {
-                tankWeightVal_ = input.readFloat();
-                bitField0_ |= 0x00080000;
-                break;
-              } // case 165
-              case 168: {
-                rocketWeightRawVal_ = input.readUInt32();
-                bitField0_ |= 0x00100000;
-                break;
-              } // case 168
-              case 176: {
-                tankWeightRawVal_ = input.readUInt32();
-                bitField0_ |= 0x00200000;
-                break;
-              } // case 176
-              case 184: {
-                interfaceRck_ = input.readBool();
-                bitField0_ |= 0x00400000;
-                break;
-              } // case 184
-              case 192: {
-                interfaceTank_ = input.readBool();
-                bitField0_ |= 0x00800000;
-                break;
-              } // case 192
-              case 200: {
-                interfaceMcu_ = input.readBool();
-                bitField0_ |= 0x01000000;
-                break;
-              } // case 200
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaFrameTanwa) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -6516,9 +6758,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setTanWaState(int value) {
-
-        tanWaState_ = value;
         bitField0_ |= 0x00000001;
+        tanWaState_ = value;
         onChanged();
         return this;
       }
@@ -6556,9 +6797,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setPressureSensor(int value) {
-
-        pressureSensor_ = value;
         bitField0_ |= 0x00000002;
+        pressureSensor_ = value;
         onChanged();
         return this;
       }
@@ -6596,9 +6836,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setSolenoidFill(int value) {
-
-        solenoidFill_ = value;
         bitField0_ |= 0x00000004;
+        solenoidFill_ = value;
         onChanged();
         return this;
       }
@@ -6636,9 +6875,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setSolenoidDepr(int value) {
-
-        solenoidDepr_ = value;
         bitField0_ |= 0x00000008;
+        solenoidDepr_ = value;
         onChanged();
         return this;
       }
@@ -6676,9 +6914,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setAbortButton(boolean value) {
-
-        abortButton_ = value;
         bitField0_ |= 0x00000010;
+        abortButton_ = value;
         onChanged();
         return this;
       }
@@ -6716,9 +6953,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setIgniterContinouity1(boolean value) {
-
-        igniterContinouity1_ = value;
         bitField0_ |= 0x00000020;
+        igniterContinouity1_ = value;
         onChanged();
         return this;
       }
@@ -6756,9 +6992,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setIgniterContinouity2(boolean value) {
-
-        igniterContinouity2_ = value;
         bitField0_ |= 0x00000040;
+        igniterContinouity2_ = value;
         onChanged();
         return this;
       }
@@ -6808,9 +7043,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setHxRequestRCK(int value) {
-
-        hxRequestRCK_ = value;
         bitField0_ |= 0x00000080;
+        hxRequestRCK_ = value;
         onChanged();
         return this;
       }
@@ -6864,9 +7098,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setHxRequestTANK(int value) {
-
-        hxRequestTANK_ = value;
         bitField0_ |= 0x00000100;
+        hxRequestTANK_ = value;
         onChanged();
         return this;
       }
@@ -6908,9 +7141,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setVbat(float value) {
-
-        vbat_ = value;
         bitField0_ |= 0x00000200;
+        vbat_ = value;
         onChanged();
         return this;
       }
@@ -6948,9 +7180,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setMotorState1(int value) {
-
-        motorState1_ = value;
         bitField0_ |= 0x00000400;
+        motorState1_ = value;
         onChanged();
         return this;
       }
@@ -6988,9 +7219,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setMotorState2(int value) {
-
-        motorState2_ = value;
         bitField0_ |= 0x00000800;
+        motorState2_ = value;
         onChanged();
         return this;
       }
@@ -7028,9 +7258,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setMotorState3(int value) {
-
-        motorState3_ = value;
         bitField0_ |= 0x00001000;
+        motorState3_ = value;
         onChanged();
         return this;
       }
@@ -7068,9 +7297,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setMotorState4(int value) {
-
-        motorState4_ = value;
         bitField0_ |= 0x00002000;
+        motorState4_ = value;
         onChanged();
         return this;
       }
@@ -7108,9 +7336,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setRocketWeightBlink(int value) {
-
-        rocketWeightBlink_ = value;
         bitField0_ |= 0x00004000;
+        rocketWeightBlink_ = value;
         onChanged();
         return this;
       }
@@ -7148,9 +7375,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setRocketWeightTemp(float value) {
-
-        rocketWeightTemp_ = value;
         bitField0_ |= 0x00008000;
+        rocketWeightTemp_ = value;
         onChanged();
         return this;
       }
@@ -7188,9 +7414,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setTankWeightBlink(int value) {
-
-        tankWeightBlink_ = value;
         bitField0_ |= 0x00010000;
+        tankWeightBlink_ = value;
         onChanged();
         return this;
       }
@@ -7228,9 +7453,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setTankWeightTemp(float value) {
-
-        tankWeightTemp_ = value;
         bitField0_ |= 0x00020000;
+        tankWeightTemp_ = value;
         onChanged();
         return this;
       }
@@ -7268,9 +7492,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setRocketWeightVal(float value) {
-
-        rocketWeightVal_ = value;
         bitField0_ |= 0x00040000;
+        rocketWeightVal_ = value;
         onChanged();
         return this;
       }
@@ -7308,9 +7531,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setTankWeightVal(float value) {
-
-        tankWeightVal_ = value;
         bitField0_ |= 0x00080000;
+        tankWeightVal_ = value;
         onChanged();
         return this;
       }
@@ -7348,9 +7570,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setRocketWeightRawVal(int value) {
-
-        rocketWeightRawVal_ = value;
         bitField0_ |= 0x00100000;
+        rocketWeightRawVal_ = value;
         onChanged();
         return this;
       }
@@ -7388,9 +7609,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setTankWeightRawVal(int value) {
-
-        tankWeightRawVal_ = value;
         bitField0_ |= 0x00200000;
+        tankWeightRawVal_ = value;
         onChanged();
         return this;
       }
@@ -7428,9 +7648,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setInterfaceRck(boolean value) {
-
-        interfaceRck_ = value;
         bitField0_ |= 0x00400000;
+        interfaceRck_ = value;
         onChanged();
         return this;
       }
@@ -7468,9 +7687,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setInterfaceTank(boolean value) {
-
-        interfaceTank_ = value;
         bitField0_ |= 0x00800000;
+        interfaceTank_ = value;
         onChanged();
         return this;
       }
@@ -7508,9 +7726,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setInterfaceMcu(boolean value) {
-
-        interfaceMcu_ = value;
         bitField0_ |= 0x01000000;
+        interfaceMcu_ = value;
         onChanged();
         return this;
       }
@@ -7557,18 +7774,7 @@ public final class FrameProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new LoRaFrameTanwa(input, extensionRegistry);
       }
     };
 
@@ -7680,6 +7886,79 @@ public final class FrameProtos {
       return new LoRaSettings();
     }
 
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LoRaSettings(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              loraFreqKhz_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              loraTransmitMs_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              countdownTime_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              ingitionTime_ = input.readInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              flashEnable_ = input.readUInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              buzzerEnable_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.internal_static_LoRaSettings_descriptor;
@@ -7695,7 +7974,7 @@ public final class FrameProtos {
 
     private int bitField0_;
     public static final int LORA_FREQ_KHZ_FIELD_NUMBER = 1;
-    private int loraFreqKhz_ = 0;
+    private int loraFreqKhz_;
     /**
      * <code>required int32 lora_freq_khz = 1;</code>
      * @return Whether the loraFreqKhz field is set.
@@ -7714,7 +7993,7 @@ public final class FrameProtos {
     }
 
     public static final int LORA_TRANSMIT_MS_FIELD_NUMBER = 2;
-    private int loraTransmitMs_ = 0;
+    private int loraTransmitMs_;
     /**
      * <code>required int32 lora_transmit_ms = 2;</code>
      * @return Whether the loraTransmitMs field is set.
@@ -7733,7 +8012,7 @@ public final class FrameProtos {
     }
 
     public static final int COUNTDOWN_TIME_FIELD_NUMBER = 3;
-    private int countdownTime_ = 0;
+    private int countdownTime_;
     /**
      * <code>required int32 countdown_time = 3;</code>
      * @return Whether the countdownTime field is set.
@@ -7752,7 +8031,7 @@ public final class FrameProtos {
     }
 
     public static final int INGITION_TIME_FIELD_NUMBER = 4;
-    private int ingitionTime_ = 0;
+    private int ingitionTime_;
     /**
      * <code>required int32 ingition_time = 4;</code>
      * @return Whether the ingitionTime field is set.
@@ -7771,7 +8050,7 @@ public final class FrameProtos {
     }
 
     public static final int FLASH_ENABLE_FIELD_NUMBER = 5;
-    private int flashEnable_ = 0;
+    private int flashEnable_;
     /**
      * <code>required uint32 flash_enable = 5;</code>
      * @return Whether the flashEnable field is set.
@@ -7790,7 +8069,7 @@ public final class FrameProtos {
     }
 
     public static final int BUZZER_ENABLE_FIELD_NUMBER = 6;
-    private int buzzerEnable_ = 0;
+    private int buzzerEnable_;
     /**
      * <code>required uint32 buzzer_enable = 6;</code>
      * @return Whether the buzzerEnable field is set.
@@ -7864,7 +8143,7 @@ public final class FrameProtos {
       if (((bitField0_ & 0x00000020) != 0)) {
         output.writeUInt32(6, buzzerEnable_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -7897,7 +8176,7 @@ public final class FrameProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(6, buzzerEnable_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7942,7 +8221,7 @@ public final class FrameProtos {
         if (getBuzzerEnable()
             != other.getBuzzerEnable()) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -7977,7 +8256,7 @@ public final class FrameProtos {
         hash = (37 * hash) + BUZZER_ENABLE_FIELD_NUMBER;
         hash = (53 * hash) + getBuzzerEnable();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8094,24 +8373,34 @@ public final class FrameProtos {
 
       // Construct using pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaSettings.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         loraFreqKhz_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
         loraTransmitMs_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
         countdownTime_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
         ingitionTime_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
         flashEnable_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
         buzzerEnable_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -8138,12 +8427,6 @@ public final class FrameProtos {
       @java.lang.Override
       public pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaSettings buildPartial() {
         pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaSettings result = new pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaSettings(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartial0(pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaSettings result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -8170,9 +8453,43 @@ public final class FrameProtos {
           result.buzzerEnable_ = buzzerEnable_;
           to_bitField0_ |= 0x00000020;
         }
-        result.bitField0_ |= to_bitField0_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaSettings) {
@@ -8203,7 +8520,7 @@ public final class FrameProtos {
         if (other.hasBuzzerEnable()) {
           setBuzzerEnable(other.getBuzzerEnable());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -8236,60 +8553,17 @@ public final class FrameProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaSettings parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                loraFreqKhz_ = input.readInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                loraTransmitMs_ = input.readInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 24: {
-                countdownTime_ = input.readInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 32: {
-                ingitionTime_ = input.readInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              case 40: {
-                flashEnable_ = input.readUInt32();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 40
-              case 48: {
-                buzzerEnable_ = input.readUInt32();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 48
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -8317,9 +8591,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setLoraFreqKhz(int value) {
-
-        loraFreqKhz_ = value;
         bitField0_ |= 0x00000001;
+        loraFreqKhz_ = value;
         onChanged();
         return this;
       }
@@ -8357,9 +8630,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setLoraTransmitMs(int value) {
-
-        loraTransmitMs_ = value;
         bitField0_ |= 0x00000002;
+        loraTransmitMs_ = value;
         onChanged();
         return this;
       }
@@ -8397,9 +8669,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setCountdownTime(int value) {
-
-        countdownTime_ = value;
         bitField0_ |= 0x00000004;
+        countdownTime_ = value;
         onChanged();
         return this;
       }
@@ -8437,9 +8708,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setIngitionTime(int value) {
-
-        ingitionTime_ = value;
         bitField0_ |= 0x00000008;
+        ingitionTime_ = value;
         onChanged();
         return this;
       }
@@ -8477,9 +8747,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setFlashEnable(int value) {
-
-        flashEnable_ = value;
         bitField0_ |= 0x00000010;
+        flashEnable_ = value;
         onChanged();
         return this;
       }
@@ -8517,9 +8786,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setBuzzerEnable(int value) {
-
-        buzzerEnable_ = value;
         bitField0_ |= 0x00000020;
+        buzzerEnable_ = value;
         onChanged();
         return this;
       }
@@ -8566,18 +8834,7 @@ public final class FrameProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new LoRaSettings(input, extensionRegistry);
       }
     };
 
@@ -8667,6 +8924,69 @@ public final class FrameProtos {
       return new LoRaCommand();
     }
 
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LoRaCommand(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              loraDevId_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              sysDevId_ = input.readUInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              command_ = input.readUInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              payload_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.internal_static_LoRaCommand_descriptor;
@@ -8682,7 +9002,7 @@ public final class FrameProtos {
 
     private int bitField0_;
     public static final int LORA_DEV_ID_FIELD_NUMBER = 1;
-    private int loraDevId_ = 0;
+    private int loraDevId_;
     /**
      * <code>required uint32 lora_dev_id = 1;</code>
      * @return Whether the loraDevId field is set.
@@ -8701,7 +9021,7 @@ public final class FrameProtos {
     }
 
     public static final int SYS_DEV_ID_FIELD_NUMBER = 2;
-    private int sysDevId_ = 0;
+    private int sysDevId_;
     /**
      * <code>required uint32 sys_dev_id = 2;</code>
      * @return Whether the sysDevId field is set.
@@ -8720,7 +9040,7 @@ public final class FrameProtos {
     }
 
     public static final int COMMAND_FIELD_NUMBER = 3;
-    private int command_ = 0;
+    private int command_;
     /**
      * <code>required uint32 command = 3;</code>
      * @return Whether the command field is set.
@@ -8739,7 +9059,7 @@ public final class FrameProtos {
     }
 
     public static final int PAYLOAD_FIELD_NUMBER = 4;
-    private int payload_ = 0;
+    private int payload_;
     /**
      * <code>required int32 payload = 4;</code>
      * @return Whether the payload field is set.
@@ -8799,7 +9119,7 @@ public final class FrameProtos {
       if (((bitField0_ & 0x00000008) != 0)) {
         output.writeInt32(4, payload_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -8824,7 +9144,7 @@ public final class FrameProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, payload_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8859,7 +9179,7 @@ public final class FrameProtos {
         if (getPayload()
             != other.getPayload()) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -8886,7 +9206,7 @@ public final class FrameProtos {
         hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
         hash = (53 * hash) + getPayload();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9003,22 +9323,30 @@ public final class FrameProtos {
 
       // Construct using pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaCommand.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         loraDevId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
         sysDevId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
         command_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
         payload_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -9045,12 +9373,6 @@ public final class FrameProtos {
       @java.lang.Override
       public pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaCommand buildPartial() {
         pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaCommand result = new pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaCommand(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartial0(pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaCommand result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -9069,9 +9391,43 @@ public final class FrameProtos {
           result.payload_ = payload_;
           to_bitField0_ |= 0x00000008;
         }
-        result.bitField0_ |= to_bitField0_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaCommand) {
@@ -9096,7 +9452,7 @@ public final class FrameProtos {
         if (other.hasPayload()) {
           setPayload(other.getPayload());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -9123,50 +9479,17 @@ public final class FrameProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaCommand parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                loraDevId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                sysDevId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 24: {
-                command_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 32: {
-                payload_ = input.readInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos.LoRaCommand) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -9194,9 +9517,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setLoraDevId(int value) {
-
-        loraDevId_ = value;
         bitField0_ |= 0x00000001;
+        loraDevId_ = value;
         onChanged();
         return this;
       }
@@ -9234,9 +9556,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setSysDevId(int value) {
-
-        sysDevId_ = value;
         bitField0_ |= 0x00000002;
+        sysDevId_ = value;
         onChanged();
         return this;
       }
@@ -9274,9 +9595,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setCommand(int value) {
-
-        command_ = value;
         bitField0_ |= 0x00000004;
+        command_ = value;
         onChanged();
         return this;
       }
@@ -9314,9 +9634,8 @@ public final class FrameProtos {
        * @return This builder for chaining.
        */
       public Builder setPayload(int value) {
-
-        payload_ = value;
         bitField0_ |= 0x00000008;
+        payload_ = value;
         onChanged();
         return this;
       }
@@ -9363,18 +9682,7 @@ public final class FrameProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new LoRaCommand(input, extensionRegistry);
       }
     };
 
@@ -9423,7 +9731,7 @@ public final class FrameProtos {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\037src/main/resources/frames.proto\"\241\006\n\tLo" +
+      "\n\037src/main/resources/frames.proto\"\312\006\n\tLo" +
       "RaFrame\022\021\n\tobc_state\030\001 \002(\r\022\017\n\007dc_time\030\002 " +
       "\002(\r\022\023\n\013flight_time\030\003 \002(\r\022\023\n\013mcb_battery\030" +
       "\004 \002(\002\022\017\n\007gps_lat\030\005 \002(\002\022\020\n\010gps_long\030\006 \002(\002" +
@@ -9440,34 +9748,35 @@ public final class FrameProtos {
       "sure\030\030 \002(\002\022\026\n\016vent_byte_data\030\031 \002(\007\022\025\n\rta" +
       "nwa_battery\030\032 \002(\002\022\027\n\017tanwa_byte_data\030\033 \002" +
       "(\007\022\023\n\013tanwa_state\030\034 \002(\r\022\025\n\rrocket_weight" +
-      "\030\035 \002(\002\022\023\n\013tank_weight\030\036 \002(\002\022\024\n\014temperatu" +
-      "re1\030\037 \002(\002\022\024\n\014temperature2\030  \002(\002\022\020\n\010press" +
-      "ure\030! \002(\002\022\027\n\017payload_battery\030\" \002(\002\022\031\n\021es" +
-      "p_now_byte_data\030# \002(\007\022\016\n\006errors\030$ \002(\007\"\352\004" +
-      "\n\016LoRaFrameTanwa\022\022\n\ntanWaState\030\001 \002(\r\022\026\n\016" +
-      "pressureSensor\030\002 \002(\r\022\025\n\rsolenoid_fill\030\003 " +
-      "\002(\r\022\025\n\rsolenoid_depr\030\004 \002(\r\022\023\n\013abortButto" +
-      "n\030\005 \002(\010\022\034\n\024igniterContinouity_1\030\006 \002(\010\022\034\n" +
-      "\024igniterContinouity_2\030\007 \002(\010\022\025\n\rhxRequest" +
-      "_RCK\030\010 \002(\r\022\026\n\016hxRequest_TANK\030\t \002(\r\022\014\n\004vb" +
-      "at\030\n \002(\002\022\024\n\014motorState_1\030\013 \002(\r\022\024\n\014motorS" +
-      "tate_2\030\014 \002(\r\022\024\n\014motorState_3\030\r \002(\r\022\024\n\014mo" +
-      "torState_4\030\016 \002(\r\022\032\n\022rocketWeight_blink\030\017" +
-      " \002(\r\022\031\n\021rocketWeight_temp\030\020 \002(\002\022\030\n\020tankW" +
-      "eight_blink\030\021 \002(\r\022\027\n\017tankWeight_temp\030\022 \002" +
-      "(\002\022\030\n\020rocketWeight_val\030\023 \002(\002\022\026\n\016tankWeig" +
-      "ht_val\030\024 \002(\002\022\033\n\023rocketWeightRaw_val\030\025 \002(" +
-      "\r\022\031\n\021tankWeightRaw_val\030\026 \002(\r\022\025\n\rinterfac" +
-      "e_rck\030\027 \002(\010\022\026\n\016interface_tank\030\030 \002(\010\022\025\n\ri" +
-      "nterface_mcu\030\031 \002(\010\"\233\001\n\014LoRaSettings\022\025\n\rl" +
-      "ora_freq_khz\030\001 \002(\005\022\030\n\020lora_transmit_ms\030\002" +
-      " \002(\005\022\026\n\016countdown_time\030\003 \002(\005\022\025\n\ringition" +
-      "_time\030\004 \002(\005\022\024\n\014flash_enable\030\005 \002(\r\022\025\n\rbuz" +
-      "zer_enable\030\006 \002(\r\"X\n\013LoRaCommand\022\023\n\013lora_" +
-      "dev_id\030\001 \002(\r\022\022\n\nsys_dev_id\030\002 \002(\r\022\017\n\007comm" +
-      "and\030\003 \002(\r\022\017\n\007payload\030\004 \002(\005BD\n5pl.edu.pwr" +
-      ".pwrinspace.poliwrocket.Model.MessagePar" +
-      "serB\013FrameProtos"
+      "\030\035 \002(\002\022\023\n\013tank_weight\030\036 \002(\002\022\030\n\020temperatu" +
+      "re_fill\030\037 \002(\002\022\031\n\021pre_fill_pressure\030  \002(\002" +
+      "\022\032\n\022post_fill_pressure\030! \002(\002\022\024\n\014btl_pres" +
+      "sure\030\" \002(\002\022\027\n\017payload_battery\030# \002(\002\022\031\n\021e" +
+      "sp_now_byte_data\030$ \002(\007\022\016\n\006errors\030% \002(\007\"\352" +
+      "\004\n\016LoRaFrameTanwa\022\022\n\ntanWaState\030\001 \002(\r\022\026\n" +
+      "\016pressureSensor\030\002 \002(\r\022\025\n\rsolenoid_fill\030\003" +
+      " \002(\r\022\025\n\rsolenoid_depr\030\004 \002(\r\022\023\n\013abortButt" +
+      "on\030\005 \002(\010\022\034\n\024igniterContinouity_1\030\006 \002(\010\022\034" +
+      "\n\024igniterContinouity_2\030\007 \002(\010\022\025\n\rhxReques" +
+      "t_RCK\030\010 \002(\r\022\026\n\016hxRequest_TANK\030\t \002(\r\022\014\n\004v" +
+      "bat\030\n \002(\002\022\024\n\014motorState_1\030\013 \002(\r\022\024\n\014motor" +
+      "State_2\030\014 \002(\r\022\024\n\014motorState_3\030\r \002(\r\022\024\n\014m" +
+      "otorState_4\030\016 \002(\r\022\032\n\022rocketWeight_blink\030" +
+      "\017 \002(\r\022\031\n\021rocketWeight_temp\030\020 \002(\002\022\030\n\020tank" +
+      "Weight_blink\030\021 \002(\r\022\027\n\017tankWeight_temp\030\022 " +
+      "\002(\002\022\030\n\020rocketWeight_val\030\023 \002(\002\022\026\n\016tankWei" +
+      "ght_val\030\024 \002(\002\022\033\n\023rocketWeightRaw_val\030\025 \002" +
+      "(\r\022\031\n\021tankWeightRaw_val\030\026 \002(\r\022\025\n\rinterfa" +
+      "ce_rck\030\027 \002(\010\022\026\n\016interface_tank\030\030 \002(\010\022\025\n\r" +
+      "interface_mcu\030\031 \002(\010\"\233\001\n\014LoRaSettings\022\025\n\r" +
+      "lora_freq_khz\030\001 \002(\005\022\030\n\020lora_transmit_ms\030" +
+      "\002 \002(\005\022\026\n\016countdown_time\030\003 \002(\005\022\025\n\ringitio" +
+      "n_time\030\004 \002(\005\022\024\n\014flash_enable\030\005 \002(\r\022\025\n\rbu" +
+      "zzer_enable\030\006 \002(\r\"X\n\013LoRaCommand\022\023\n\013lora" +
+      "_dev_id\030\001 \002(\r\022\022\n\nsys_dev_id\030\002 \002(\r\022\017\n\007com" +
+      "mand\030\003 \002(\r\022\017\n\007payload\030\004 \002(\005BD\n5pl.edu.pw" +
+      "r.pwrinspace.poliwrocket.Model.MessagePa" +
+      "rserB\013FrameProtos"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9478,7 +9787,7 @@ public final class FrameProtos {
     internal_static_LoRaFrame_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LoRaFrame_descriptor,
-        new java.lang.String[] { "ObcState", "DcTime", "FlightTime", "McbBattery", "GpsLat", "GpsLong", "GpsSat", "McbAltitude", "McbVelocity", "McbTemperature", "EulerFi", "EulerPsi", "EulerTheta", "RecovPressure1", "RecovPressure2", "RecovByteData", "PitotBattery", "PitotAltitude", "PitotVelocity", "PitotTemperature", "MvalBattery", "MvalByteData", "VentBattery", "TankPressure", "VentByteData", "TanwaBattery", "TanwaByteData", "TanwaState", "RocketWeight", "TankWeight", "Temperature1", "Temperature2", "Pressure", "PayloadBattery", "EspNowByteData", "Errors", });
+        new java.lang.String[] { "ObcState", "DcTime", "FlightTime", "McbBattery", "GpsLat", "GpsLong", "GpsSat", "McbAltitude", "McbVelocity", "McbTemperature", "EulerFi", "EulerPsi", "EulerTheta", "RecovPressure1", "RecovPressure2", "RecovByteData", "PitotBattery", "PitotAltitude", "PitotVelocity", "PitotTemperature", "MvalBattery", "MvalByteData", "VentBattery", "TankPressure", "VentByteData", "TanwaBattery", "TanwaByteData", "TanwaState", "RocketWeight", "TankWeight", "TemperatureFill", "PreFillPressure", "PostFillPressure", "BtlPressure", "PayloadBattery", "EspNowByteData", "Errors", });
     internal_static_LoRaFrameTanwa_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_LoRaFrameTanwa_fieldAccessorTable = new

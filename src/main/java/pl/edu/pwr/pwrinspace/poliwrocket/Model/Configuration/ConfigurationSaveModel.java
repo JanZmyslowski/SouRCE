@@ -46,6 +46,9 @@ public class ConfigurationSaveModel extends BaseSaveModel {
     public Map<String, List<String>> FRAME_PATTERN = new HashMap<>();
 
     @Expose
+    public String MSG_PREFIX = "";
+
+    @Expose
     public List<Command> commandsList = new LinkedList<>();
 
     @Expose
@@ -82,6 +85,7 @@ public class ConfigurationSaveModel extends BaseSaveModel {
         config.FRAME_PATTERN = configuration.FRAME_PATTERN;
         config.DISCORD_TOKEN = configuration.DISCORD_TOKEN;
         config.DISCORD_CHANNEL_NAME = configuration.DISCORD_CHANNEL_NAME;
+        config.MSG_PREFIX = configuration.MSG_PREFIX;
         config.commandsList = configuration.commandsList;
         config.notificationMessageKeys = configuration.notificationMessageKeys;
         config.notificationSchedule = configuration.notificationSchedule;
@@ -149,6 +153,7 @@ public class ConfigurationSaveModel extends BaseSaveModel {
         defaultConfig.commandsList = new LinkedList<>();
         defaultConfig.DISCORD_CHANNEL_NAME = "";
         defaultConfig.DISCORD_TOKEN = "";
+        defaultConfig.MSG_PREFIX = "";
         defaultConfig.START_POSITION_LON = 16.9333977;
         defaultConfig.START_POSITION_LAT = 51.1266727;
 

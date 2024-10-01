@@ -3,6 +3,8 @@ package pl.edu.pwr.pwrinspace.poliwrocket.Model.Command;
 import pl.edu.pwr.pwrinspace.poliwrocket.Model.Command.Content.BaseProtobufContent;
 import pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.FrameProtos;
 
+import java.util.List;
+
 public abstract class ProtobufBaseCommand<T extends BaseProtobufContent> extends Command<T> {
 
     protected byte[] buildLoRaCommand(int loraDevId, int sysDevId) {
