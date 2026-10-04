@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class BaseInterpretersController extends BasicSensorController {
+public abstract class BaseInterpretersController extends BaseSensorController {
 
     @FXML
     protected AnchorPane mainPanel;

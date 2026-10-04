@@ -4,33 +4,12 @@
 <?import eu.hansolo.tilesfx.addons.Switch?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="165.0" prefWidth="410.0" styleClass="baseScene" stylesheets="@constants.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pwr.pwrinspace.poliwrocket.Controller.StartControlController">
-   <children>
-      <Label layoutX="7.0" prefHeight="27.0" prefWidth="116.0" text="Start control:">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Switch fx:id="safeSwitch1" layoutX="35.0" layoutY="24.0" prefHeight="26.0" prefWidth="42.0" />
-      <Switch fx:id="safeSwitch2" layoutX="35.0" layoutY="54.0" prefHeight="26.0" prefWidth="42.0" />
-      <Switch fx:id="safeSwitch3" layoutX="35.0" layoutY="84.0" prefHeight="26.0" prefWidth="42.0" />
-      <Switch fx:id="safeSwitch4" layoutX="35.0" layoutY="114.0" prefHeight="26.0" prefWidth="42.0" />
-      <JFXButton fx:id="qucikDistonectButton" layoutX="117.0" layoutY="24.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="116.0" text="Arming TN 1-&gt;2" />
-      <JFXButton fx:id="armingButton1" layoutX="117.0" layoutY="54.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="116.0" text="Quick disconect" />
-      <JFXButton fx:id="armingButton2" layoutX="117.0" layoutY="84.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="116.0" text="Arming TN 2 -&gt; 3" />
-      <JFXButton fx:id="fireButton" layoutX="117.0" layoutY="115.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="116.0" text="LAUNCH" />
-      <Switch fx:id="safeSwitch5" layoutX="35.0" layoutY="138.0" prefHeight="26.0" prefWidth="42.0" />
-      <Label fx:id="countdownTimer" layoutX="243.0" layoutY="142.0" text="-00:00:10:000" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="248.0" layoutY="129.0" text="Countdown:" />
-      <JFXButton fx:id="stateButton1" layoutX="243.0" layoutY="24.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="71.0" text="S1" visible="false" />
-      <JFXButton fx:id="stateButton2" layoutX="324.0" layoutY="24.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="71.0" text="S2" visible="false" />
-      <JFXButton fx:id="stateButton3" layoutX="243.0" layoutY="54.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="71.0" text="S3" visible="false" />
-      <JFXButton fx:id="stateButton4" layoutX="324.0" layoutY="54.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="71.0" text="S4" visible="false" />
-      <JFXButton fx:id="stateButton5" layoutX="244.0" layoutY="84.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="71.0" text="S5" visible="false" />
-      <JFXButton fx:id="stateButton6" layoutX="325.0" layoutY="84.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="71.0" text="S6" visible="false" />
-      <JFXButton fx:id="stateButton7" layoutX="325.0" layoutY="114.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="71.0" text="S7" visible="false" />
-      <JFXButton fx:id="voidButton" layoutX="325.0" layoutY="135.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" text="Void" />
-   </children>
+   <Switch fx:id="safeSwitch1" layoutX="25.0" layoutY="45.0" prefHeight="26.0" prefWidth="42.0" />
+   <JFXButton fx:id="fireButton" layoutX="85.0" layoutY="50.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="116.0" text="LAUNCH"/>
+   <Switch fx:id="safeSwitch2" layoutX="25.0" layoutY="70.0" prefHeight="26.0" prefWidth="42.0" />
+   <Label fx:id="countdownTimer" layoutX="215.0" layoutY="75.0" text="-00:00:45:000" />
+   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="225.0" layoutY="55.0" text="Countdown:" />
+   <JFXButton fx:id="voidButton" layoutX="315.0" layoutY="62.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" text="Void" />
 </AnchorPane>

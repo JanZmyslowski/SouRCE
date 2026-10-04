@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import eu.hansolo.tilesfx.Tile?>
-<?import javafx.scene.control.Label?>
+<?import eu.hansolo.tilesfx.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="740.0" prefWidth="410.0" styleClass="baseScene" stylesheets="@constants.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pwr.pwrinspace.poliwrocket.Controller.DataFillingController">
-   <children>
-      <Tile fx:id="dataGauge1" backgroundImageOpacity="1.0" decimals="2" layoutX="22.0" layoutY="35.0" maxHeight="120.0" maxWidth="-Infinity" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" />
-      <Tile fx:id="dataGauge2" animated="false" autoScale="false" averageVisible="true" averagingEnabled="true" decimals="2" layoutX="217.0" layoutY="35.0" maxHeight="120.0" maxWidth="-Infinity" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" />
-      <Tile fx:id="dataGauge3" averagingPeriod="100" decimals="2" layoutX="22.0" layoutY="175.0" maxHeight="120.0" maxWidth="-Infinity" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" />
-      <Tile fx:id="dataGauge4" decimals="2" layoutX="217.0" layoutY="175.0" maxHeight="120.0" maxWidth="-Infinity" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" />
-      <Tile fx:id="dataGauge5" decimals="2" layoutX="22.0" layoutY="315.0" maxHeight="120.0" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" />
-      <Tile fx:id="dataGauge6" decimals="2" layoutX="217.0" layoutY="315.0" maxHeight="120.0" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" />
-      <Tile fx:id="dataGauge7" decimals="2" layoutX="22.0" layoutY="455.0" maxHeight="120.0" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" />
-      <Tile fx:id="dataGauge8" decimals="2" layoutX="217.0" layoutY="455.0" maxHeight="120.0" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" />
-      <Label layoutX="7.0" prefHeight="22.0" prefWidth="50.0" text="Data:">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
-      <Tile fx:id="dataGauge9" decimals="2" layoutX="22.0" layoutY="595.0" maxHeight="120.0" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" />
-      <Tile fx:id="dataGauge10" decimals="2" layoutX="217.0" layoutY="595.0" maxHeight="120.0" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" />
-   </children>
+   <Tile fx:id="dataGauge9" layoutX="22.0" layoutY="35.0" decimals="2" maxHeight="120.0" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
+   <Tile fx:id="dataGauge2" layoutX="217.0" layoutY="35.0" decimals="2" maxHeight="120.0" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
+   <Tile fx:id="dataGauge3" layoutX="22.0" layoutY="175.0" decimals="2" maxHeight="120.0" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
+   <Tile fx:id="dataGauge4" layoutX="217.0" layoutY="175.0" decimals="2" maxHeight="120.0" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
+   <Tile fx:id="dataGauge5" layoutX="22.0" layoutY="315.0" decimals="2" maxHeight="120.0" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
+   <Tile fx:id="dataGauge6" layoutX="217.0" layoutY="315.0" decimals="2" maxHeight="120.0" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
+   <Tile fx:id="dataGauge7" layoutX="22.0" layoutY="455.0" decimals="2" maxHeight="120.0" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
+   <Tile fx:id="dataGauge8" layoutX="217.0" layoutY="455.0" decimals="2" maxHeight="120.0" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
+   <Tile fx:id="dataGauge1" layoutX="22.0" layoutY="595.0" decimals="2" maxHeight="120.0" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
+   <Tile fx:id="dataGauge10" layoutX="217.0" layoutY="595.0" decimals="2" maxHeight="120.0" prefHeight="120.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
 </AnchorPane>

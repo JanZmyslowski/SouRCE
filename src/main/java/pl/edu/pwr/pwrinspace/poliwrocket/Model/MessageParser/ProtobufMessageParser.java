@@ -1,6 +1,7 @@
 package pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser;
 
-import com.google.protobuf.Descriptors;
+import com.google.protobuf.Descriptors.Descriptor;
+import com.google.protobuf.Descriptors.FieldDescriptor.JavaType;
 import com.google.protobuf.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +9,7 @@ import pl.edu.pwr.pwrinspace.poliwrocket.Model.Configuration.Configuration;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 
 public class ProtobufMessageParser extends BaseMessageParser {
 
@@ -19,10 +21,10 @@ public class ProtobufMessageParser extends BaseMessageParser {
 
     private void readFields(Message message) {
         message.getAllFields().forEach((fieldDescriptor, o) -> {
-            if (fieldDescriptor.getJavaType() != Descriptors.FieldDescriptor.JavaType.MESSAGE) {
+            if (fieldDescriptor.getJavaType() != JavaType.MESSAGE) {
                 var sensorName = fieldDescriptor.getName();
                 double value;
-                if (fieldDescriptor.getJavaType() == Descriptors.FieldDescriptor.JavaType.BOOLEAN) {
+                if (fieldDescriptor.getJavaType() == JavaType.BOOLEAN) {
                     value = (boolean)o ? 1.0 : 0;
                 } else {
                     value = Double.parseDouble(o.toString());
@@ -32,7 +34,7 @@ public class ProtobufMessageParser extends BaseMessageParser {
                     try {
                         Configuration.getInstance().sensorRepository.getSensorByName(sensorName).setValue(value);
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        logger.error(e.getMessage());
                     }
                 });
             } else {
@@ -44,29 +46,28 @@ public class ProtobufMessageParser extends BaseMessageParser {
     @Override
     protected void parseInternal(Frame frame) {
         try{
-            Message message = null;
-            String frameName = "";
+            Message message;
+            String frameName;
 
-            logger.info("Frame length: " + frame.getByteContent().length);
-            for (Descriptors.Descriptor descriptor: FrameProtos.getDescriptor().getMessageTypes()) {
-                try {
-                    frameName = descriptor.getFullName();
-                    var parserClass = Class.forName(classPathBase + descriptor.getFullName());
-                    var pars = parserClass.getMethod("parseFrom", byte[].class);
-                    logger.info("Try with: " + frameName);
-                    message = (Message)pars.invoke(parserClass, frame.getByteContent());
-                    this.parsingResultStatus = ParsingResultStatus.PENDING;
+            logger.info("Frame length: {}", frame.getByteContent().length);
+
+            FrameProtos.LoRaFrame loRaFrame = FrameProtos.LoRaFrame.parseFrom(frame.getByteContent());
+            switch (loRaFrame.getFrameCase()) {
+                case MCB_FRAME:
+                    message = loRaFrame.getMcbFrame();
+                    frameName = "MCB_FRAME";
                     break;
-                } catch (Exception e) {
-                    logger.error(e.getMessage());
+                case TANWA_FRAME:
+                    message = loRaFrame.getTanwaFrame();
+                    frameName = "TANWA_FRAME";
+                    break;
+                default:
+                    logger.error("Unknown frame type: {}", loRaFrame.getFrameCase());
                     setParsingError();
-                }
+                    return;
             }
-            frame.setFormattedContent(frameName + Configuration.getInstance().FRAME_DELIMITER + frame.getByteContent().toString());
-
-            if(message != null) {
-                readFields(message);
-            }
+            frame.setFormattedContent(frameName + Configuration.getInstance().FRAME_DELIMITER + Arrays.toString(frame.getByteContent()));
+            readFields(message);
 
             if (parsingResultStatus == ParsingResultStatus.PENDING) {
                 parsingResultStatus = ParsingResultStatus.OK;

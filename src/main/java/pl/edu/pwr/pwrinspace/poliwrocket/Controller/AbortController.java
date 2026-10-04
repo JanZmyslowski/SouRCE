@@ -2,6 +2,7 @@ package pl.edu.pwr.pwrinspace.poliwrocket.Controller;
 
 import com.jfoenix.controls.JFXButton;
 import eu.hansolo.tilesfx.addons.Switch;
+import javafx.application.Platform;
 import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,31 +12,29 @@ import pl.edu.pwr.pwrinspace.poliwrocket.Model.Command.ICommand;
 import pl.edu.pwr.pwrinspace.poliwrocket.Model.SerialPort.SerialPortManager;
 import pl.edu.pwr.pwrinspace.poliwrocket.Thred.ThreadName;
 
-
-public class AbortController extends BasicButtonSensorController {
+public class AbortController extends BaseButtonSensorController {
 
     @FXML
     private Switch safeSwitch1;
-
     @FXML
     private Switch safeSwitch2;
-
     @FXML
     protected JFXButton abortButton;
 
-    @Override
     @FXML
+    @Override
     protected void initialize() {
         super.initialize();
+
+        Platform.runLater(this::buildVisualizationMap);
+
         abortButton.setDisable(true);
-
         safeSwitch1.setOnMouseClicked(actionEvent -> abortButton.setDisable(!(safeSwitch1.isActive() && safeSwitch2.isActive())));
-
         safeSwitch2.setOnMouseClicked(actionEvent -> abortButton.setDisable(!(safeSwitch1.isActive() && safeSwitch2.isActive())));
     }
 
     @Override
-    protected EventHandler<ActionEvent> handleButtonsClickByCommand(Button button, ICommand command) {
+    protected EventHandler<ActionEvent> handleButtonsClickByCommand(ICommand command) {
         return actionEvent -> {
             executorService.execute(() -> {
                 if (safeSwitch1.isActive() && safeSwitch2.isActive()) {
@@ -52,20 +51,14 @@ public class AbortController extends BasicButtonSensorController {
 
 
     @Override
-    public void invalidated(Observable observable) {
-        //there is now field to display sensor data
+    public void invalidated(Observable observable) throws UnsupportedOperationException {
+        //there is no field to display sensor data
         throw new UnsupportedOperationException();
     }
 
     @Override
-    protected void setUIBySensors() {
-        //there is now field to display sensor data
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    protected void buildVisualizationMap() {
-        //there is now field to display sensor data
+    protected void setUIBySensors() throws UnsupportedOperationException {
+        //there is no field to display sensor data
         throw new UnsupportedOperationException();
     }
 }

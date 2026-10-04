@@ -40,6 +40,7 @@ public class DataFlightController extends BaseDataTilesController {
 
     @FXML
     protected void initialize() {
+
         setup3DModel();
     }
 

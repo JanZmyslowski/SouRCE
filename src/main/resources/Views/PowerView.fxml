@@ -1,65 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import eu.hansolo.medusa.Gauge?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
+<?import eu.hansolo.tilesfx.addons.Indicator?>
 <AnchorPane prefHeight="330.0" prefWidth="205.0" styleClass="baseScene" stylesheets="@constants.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pwr.pwrinspace.poliwrocket.Controller.PowerController">
-   <children>
-      <Gauge fx:id="powerGauge4" layoutX="54.0" layoutY="145.0" prefHeight="22.0" prefWidth="142.0" skinType="BATTERY" />
-      <Gauge fx:id="powerGauge5" layoutX="54.0" layoutY="179.0" prefHeight="22.0" prefWidth="142.0" skinType="BATTERY" />
-      <Gauge fx:id="powerGauge6" layoutX="54.0" layoutY="213.0" prefHeight="22.0" prefWidth="142.0" skinType="BATTERY" />
-      <Gauge fx:id="powerGauge3" layoutX="54.0" layoutY="112.0" prefHeight="22.0" prefWidth="142.0" skinType="BATTERY" />
-      <Gauge fx:id="powerGauge7" layoutX="54.0" layoutY="246.0" prefHeight="22.0" prefWidth="142.0" skinType="BATTERY" />
-      <Gauge fx:id="powerGauge2" layoutX="54.0" layoutY="78.0" prefHeight="22.0" prefWidth="142.0" skinType="BATTERY" />
-      <Gauge fx:id="powerGauge1" layoutX="54.0" layoutY="44.0" prefHeight="22.0" prefWidth="142.0" skinType="BATTERY" threshold="30.0" thresholdVisible="true" />
-      <Label fx:id="powerLabel7" layoutX="36.0" layoutY="255.0" text="Power7">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </Label>
-      <Label fx:id="powerLabel6" layoutX="36.0" layoutY="221.0" text="Power6">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </Label>
-      <Label fx:id="powerLabel5" layoutX="36.0" layoutY="187.0" text="Power5">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </Label>
-      <Label fx:id="powerLabel4" layoutX="36.0" layoutY="154.0" text="Power4">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </Label>
-      <Label fx:id="powerLabel3" layoutX="36.0" layoutY="120.0" text="Power3">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </Label>
-      <Label fx:id="powerLabel2" layoutX="36.0" layoutY="86.0" text="Power2">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </Label>
-      <Label fx:id="powerLabel1" layoutX="36.0" layoutY="50.0" prefHeight="18.0" prefWidth="40.0" text="Power1">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </Label>
-      <Label layoutX="7.0" text="Power:">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="powerValue1" layoutX="163.0" layoutY="60.0" text="V" />
-      <Label fx:id="powerValue2" layoutX="163.0" layoutY="94.0" text="V" />
-      <Label fx:id="powerValue3" layoutX="163.0" layoutY="128.0" text="V" />
-      <Label fx:id="powerValue4" layoutX="163.0" layoutY="161.0" text="V" />
-      <Label fx:id="powerValue5" layoutX="163.0" layoutY="195.0" text="V" />
-      <Label fx:id="powerValue6" layoutX="163.0" layoutY="229.0" text="V" />
-      <Label fx:id="powerValue7" layoutX="163.0" layoutY="262.0" text="V" />
-   </children>
+
+<!--   1 - mcb        -->
+<!--   2 - tanwa sys  -->
+<!--   3 - tanwa sol  -->
+<!--   4 - ox main    -->
+<!--   5 - eth vent   -->
+<!--   6 - ox eth     -->
+<!--   7 - payload    -->
+<!--   8 - pitot      -->
+
+   <Label fx:id="powerLabel1" layoutX="5.0" layoutY="10.0" text="Power1" />
+   <Label fx:id="powerLabel2" layoutX="5.0" layoutY="50.0" text="Power2"/>
+   <Label fx:id="powerLabel3" layoutX="5.0" layoutY="90.0" text="Power3" />
+   <Label fx:id="powerLabel4" layoutX="5.0" layoutY="130" text="Power4"/>
+   <Label fx:id="powerLabel5" layoutX="5.0" layoutY="170.0" text="Power5"/>
+   <Label fx:id="powerLabel6" layoutX="5.0" layoutY="210.0" text="Power6"/>
+   <Label fx:id="powerLabel7" layoutX="5.0" layoutY="250.0" text="Power7"/>
+   <Label fx:id="powerLabel8" layoutX="5.0" layoutY="290.0" text="Power8"/>
+
+   <Label fx:id="powerTemperature1" layoutX="10.0" layoutY="25.0" text="°C"/>
+   <Label fx:id="powerTemperature2" layoutX="10.0" layoutY="65.0" text="°C"/>
+   <Label fx:id="powerTemperature3" layoutX="10.0" layoutY="105.0" text="°C"/>
+   <Label fx:id="powerTemperature4" layoutX="10.0" layoutY="145.0" text="°C"/>
+   <Label fx:id="powerTemperature5" layoutX="10.0" layoutY="185.0" text="°C"/>
+   <Label fx:id="powerTemperature6" layoutX="10.0" layoutY="225.0" text="°C"/>
+   <Label fx:id="powerTemperature7" layoutX="10.0" layoutY="265.0" text="°C"/>
+   <Label fx:id="powerTemperature8" layoutX="10.0" layoutY="305.0" text="°C"/>
+
+   <Label fx:id="powerVoltage1" layoutX="80.0" layoutY="10.0" text="V" />
+   <Label fx:id="powerVoltage2" layoutX="80.0" layoutY="50.0" text="V" />
+   <Label fx:id="powerVoltage3" layoutX="80.0" layoutY="90.0" text="V" />
+   <Label fx:id="powerVoltage4" layoutX="80.0" layoutY="130" text="V" />
+   <Label fx:id="powerVoltage5" layoutX="80.0" layoutY="170.0" text="V" />
+   <Label fx:id="powerVoltage6" layoutX="80.0" layoutY="210.0" text="V" />
+   <Label fx:id="powerVoltage7" layoutX="80.0" layoutY="250.0" text="V" />
+   <Label fx:id="powerVoltage8" layoutX="80.0" layoutY="290.0" text="V" />
+
+   <Label fx:id="powerConsumption1" layoutX="140.0" layoutY="10.0" text="A" />
+   <Label fx:id="powerConsumption2" layoutX="140.0" layoutY="50.0" text="A" />
+   <Label fx:id="powerConsumption3" layoutX="140.0" layoutY="90.0" text="A" />
+   <Label fx:id="powerConsumption4" layoutX="140.0" layoutY="130" text="A" />
+   <Label fx:id="powerConsumption5" layoutX="140.0" layoutY="170.0" text="A" />
+   <Label fx:id="powerConsumption6" layoutX="140.0" layoutY="210.0" text="A" />
+   <Label fx:id="powerConsumption7" layoutX="140.0" layoutY="250.0" text="A" />
+   <Label fx:id="powerConsumption8" layoutX="140.0" layoutY="290.0" text="A" />
+
+   <Indicator fx:id="powerIndicator1" layoutX="200.0" layoutY="10.0" prefHeight="15.0" prefWidth="15.0" />
+   <Indicator fx:id="powerIndicator2" layoutX="200.0" layoutY="50.0" prefHeight="15.0" prefWidth="15.0" />
+   <Indicator fx:id="powerIndicator3" layoutX="200.0" layoutY="90.0" prefHeight="15.0" prefWidth="15.0" />
+   <Indicator fx:id="powerIndicator4" layoutX="200.0" layoutY="130" prefHeight="15.0" prefWidth="15.0" />
+   <Indicator fx:id="powerIndicator5" layoutX="200.0" layoutY="170.0" prefHeight="15.0" prefWidth="15.0" />
+   <Indicator fx:id="powerIndicator6" layoutX="200.0" layoutY="210.0" prefHeight="15.0" prefWidth="15.0" />
+   <Indicator fx:id="powerIndicator7" layoutX="200.0" layoutY="250.0" prefHeight="15.0" prefWidth="15.0" />
+   <Indicator fx:id="powerIndicator8" layoutX="200.0" layoutY="290.0" prefHeight="15.0" prefWidth="15.0" />
 </AnchorPane>

@@ -1,53 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import eu.hansolo.tilesfx.addons.Indicator?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="335.0" prefWidth="410.0" styleClass="baseScene" stylesheets="@constants.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pwr.pwrinspace.poliwrocket.Controller.ValvesController">
-   <children>
-      <Label layoutX="7.0" text="Valves:">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Indicator fx:id="dataIndicator1" layoutX="99.0" layoutY="32.0" prefHeight="42.0" prefWidth="40.0" visible="false" />
-      <Label fx:id="indicatorLabel1" layoutX="34.0" layoutY="27.0" text="Valve1" visible="false" />
-      <JFXButton fx:id="valveOpenButton1" layoutX="166.0" layoutY="36.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="Open" visible="false" />
-      <JFXButton fx:id="valveCloseButton1" layoutX="246.0" layoutY="36.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="Close" visible="false" />
-      <Indicator fx:id="dataIndicator2" layoutX="99.0" layoutY="83.0" prefHeight="42.0" prefWidth="40.0" visible="false" />
-      <Label fx:id="indicatorLabel2" layoutX="34.0" layoutY="78.0" text="Valve2" visible="false" />
-      <JFXButton fx:id="valveOpenButton2" layoutX="166.0" layoutY="87.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="Open" visible="false" />
-      <JFXButton fx:id="valveCloseButton2" layoutX="246.0" layoutY="87.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="Close" visible="false" />
-      <Indicator fx:id="dataIndicator3" layoutX="99.0" layoutY="137.0" prefHeight="42.0" prefWidth="40.0" visible="false" />
-      <Label fx:id="indicatorLabel3" layoutX="34.0" layoutY="132.0" text="Valve3" visible="false" />
-      <JFXButton fx:id="valveOpenButton3" layoutX="166.0" layoutY="141.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="Open" visible="false" />
-      <JFXButton fx:id="valveCloseButton3" layoutX="246.0" layoutY="141.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="Close" visible="false" />
-      <Indicator fx:id="dataIndicator4" layoutX="99.0" layoutY="188.0" prefHeight="42.0" prefWidth="40.0" visible="false" />
-      <Label fx:id="indicatorLabel4" layoutX="34.0" layoutY="183.0" text="Valve4" visible="false" />
-      <JFXButton fx:id="valveOpenButton4" layoutX="166.0" layoutY="192.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="Open" visible="false" />
-      <JFXButton fx:id="valveCloseButton4" layoutX="246.0" layoutY="192.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="Close" visible="false" />
-      <Indicator fx:id="dataIndicator5" layoutX="99.0" layoutY="239.0" prefHeight="42.0" prefWidth="40.0" visible="false" />
-      <Label fx:id="indicatorLabel5" layoutX="34.0" layoutY="234.0" text="Valve5" visible="false" />
-      <JFXButton fx:id="valveOpenButton5" layoutX="166.0" layoutY="243.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="Open" visible="false" />
-      <JFXButton fx:id="valveCloseButton5" layoutX="246.0" layoutY="243.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="Close" visible="false" />
-      <Indicator fx:id="dataIndicator6" layoutX="99.0" layoutY="288.0" prefHeight="42.0" prefWidth="40.0" visible="false" />
-      <Label fx:id="indicatorLabel6" layoutX="34.0" layoutY="283.0" text="Valve6" visible="false" />
-      <JFXButton fx:id="valveOpenButton6" layoutX="166.0" layoutY="292.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="Open" visible="false" />
-      <JFXButton fx:id="valveCloseButton6" layoutX="246.0" layoutY="292.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="Close" visible="false" />
-      <JFXButton fx:id="valveTmpOpenButton1" layoutX="326.0" layoutY="36.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="TmpOpen" visible="false" />
-      <JFXButton fx:id="valveTmpOpenButton2" layoutX="326.0" layoutY="87.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="TmpOpen" visible="false" />
-      <JFXButton fx:id="valveTmpOpenButton3" layoutX="326.0" layoutY="141.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="TmpOpen" visible="false" />
-      <JFXButton fx:id="valveTmpOpenButton4" layoutX="326.0" layoutY="192.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="TmpOpen" visible="false" />
-      <JFXButton fx:id="valveTmpOpenButton5" layoutX="326.0" layoutY="243.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="TmpOpen" visible="false" />
-      <JFXButton fx:id="valveTmpOpenButton6" layoutX="326.0" layoutY="292.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="TmpOpen" visible="false" />
-      <Label fx:id="indicatorValueLabel1" layoutX="34.0" layoutY="46.0" text="Valve1" visible="false" />
-      <Label fx:id="indicatorValueLabel2" layoutX="34.0" layoutY="97.0" text="Valve2" visible="false" />
-      <Label fx:id="indicatorValueLabel3" layoutX="34.0" layoutY="151.0" text="Valve3" visible="false" />
-      <Label fx:id="indicatorValueLabel4" layoutX="34.0" layoutY="202.0" text="Valve4" visible="false" />
-      <Label fx:id="indicatorValueLabel5" layoutX="34.0" layoutY="253.0" text="Valve5" visible="false" />
-      <Label fx:id="indicatorValueLabel6" layoutX="34.0" layoutY="302.0" text="Valve6" visible="false" />
-   </children>
+<AnchorPane fx:id="mainPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="744.0" prefWidth="430.0" styleClass="baseScene" stylesheets="@constants.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pwr.pwrinspace.poliwrocket.Controller.ValvesController">
 </AnchorPane>

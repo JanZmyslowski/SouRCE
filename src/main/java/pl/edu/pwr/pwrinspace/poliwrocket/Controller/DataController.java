@@ -8,7 +8,7 @@ import pl.edu.pwr.pwrinspace.poliwrocket.Model.Sensor.IAlert;
 import pl.edu.pwr.pwrinspace.poliwrocket.Model.Sensor.ISensor;
 import pl.edu.pwr.pwrinspace.poliwrocket.Thred.UI.UIThreadManager;
 
-public class DataController extends BasicTilesFXSensorController {
+public class DataController extends BaseTilesFXSensorController {
 
     @FXML
     protected Tile dataGauge1;

@@ -10,12 +10,13 @@ import pl.edu.pwr.pwrinspace.poliwrocket.Model.MessageParser.IMessageParser;
 import pl.edu.pwr.pwrinspace.poliwrocket.Provider.UITaskProvider;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class UIThreadManager implements InvalidationListener {
 
     private static final Logger logger = LoggerFactory.getLogger(UIThreadManager.class);
 
-    private final Queue<Runnable> activeRunnableQueue = new LinkedList<>();
+    private final Queue<Runnable> activeRunnableQueue = new ConcurrentLinkedQueue<>();
     private UIRunnable waitingNormalRunnable = new UIRunnable();
     private UIRunnable waitingImmediateOnOKRunnable = new UIRunnable();
     private UIRunnable waitingImmediateRunnable = new UIRunnable();

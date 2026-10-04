@@ -14,6 +14,10 @@ public class CompositeBitSensor extends Sensor implements InvalidationListener {
 
     @Expose
     private String[] sensorsKeys;
+    @Expose
+    private int divider = 1;
+    @Expose
+    private boolean signed = false;
     private Sensor[] sensors;
     private int sensorsUpdates = 0;
 
@@ -52,13 +56,23 @@ public class CompositeBitSensor extends Sensor implements InvalidationListener {
     public void invalidated(Observable observable) {
         this.sensorsUpdates++;
 
-        if(sensorsUpdates == sensorsKeys.length) {
+        if (sensorsUpdates == sensorsKeys.length) {
             this.sensorsUpdates = 0;
             StringBuilder binaryString = new StringBuilder();
             for (Sensor sensor : sensors) {
-                binaryString.append((int)sensor.getValue());
+                binaryString.append((int) sensor.getValue());
             }
-            this.setValue(Integer.parseInt(binaryString.reverse().toString(),2));
+
+            int val;
+            if (signed) {
+                int shift = 32 - binaryString.length();
+                val = Integer.parseInt(binaryString.toString(), 2) << shift >> shift;
+            } else {
+                val = Integer.parseInt(binaryString.toString(), 2);
+            }
+
+            assert divider != 0;
+            this.setValue((double) val / divider);
         }
     }
 }

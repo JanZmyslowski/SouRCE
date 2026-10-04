@@ -32,6 +32,7 @@ Add VM options:
 ```bash
 --add-opens java.base/java.net=com.sothawo.mapjfx --add-opens java.base/java.lang.reflect=com.jfoenix --add-exports com.google.gson/com.google.gson.internal=pl.edu.pwr.pwrinspace.poliwrocket
 ```
+
 To run the application on Linux download JavaFX and add modules:
 ```bash
 --module-path $PATH_TO_JAVAFX_SDK/lib --add-modules=javafx.controls,javafx.fxml,javafx.base,javafx.graphics,javafx.web

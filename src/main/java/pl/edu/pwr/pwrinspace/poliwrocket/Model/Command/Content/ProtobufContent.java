@@ -17,6 +17,14 @@ public class ProtobufContent extends BaseProtobufContent {
         return system;
     }
 
+    public void setDevice(String device) {
+        this.device = device;
+    }
+
+    public void setSystem(String system) {
+        this.system = system;
+    }
+
     @Override
     public String toString() {
         return super.toString() + ", device: " + device + ", system: " + system;

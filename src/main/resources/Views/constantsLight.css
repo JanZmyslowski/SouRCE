@@ -1,0 +1,157 @@
+* {
+    -inspace-base-border-color: rgba(200, 200, 205, 0.9);
+    -fx-backgroundColor-base: rgb(245, 245, 247);
+}
+
+
+.baseScene {
+    /*-fx-backgroundColor-base: rgba(160,160,160,0.8);*/
+    -fx-background-radius: 6px;
+    -fx-background-color: -fx-backgroundColor-base !important;
+    -fx-border-color: -inspace-base-border-color !important;
+    -fx-border-width: 2px;
+}
+.valvesScene {
+    -fx-background-radius: 6px;
+    -fx-background-color: -fx-backgroundColor-base;
+    -fx-border-color: -inspace-base-border-color;
+    -fx-border-width: 2px 2px 0px 2px;
+}
+
+.timesOpenCommandsScene {
+    -fx-background-radius: 6px;
+    -fx-background-color: -fx-backgroundColor-base;
+    -fx-border-color: -inspace-base-border-color;
+    -fx-border-width: 0px 2px 2px 2px;
+}
+
+.qdPushScene {
+    -fx-background-radius: 0px;
+    -fx-background-color: -fx-backgroundColor-base;
+    -fx-border-color: -inspace-base-border-color;
+    -fx-border-width: 0px 0px 2px 2px;
+}
+
+.qdPullScene {
+    -fx-background-radius: 0px;
+    -fx-background-color: -fx-backgroundColor-base;
+    -fx-border-color: -inspace-base-border-color;
+    -fx-border-width: 0px 0px 2px 0px;
+}
+
+.qdStopScene {
+    -fx-background-radius: 0px;
+    -fx-background-color: -fx-backgroundColor-base;
+    -fx-border-color: -inspace-base-border-color;
+    -fx-border-width: 0px 2px 2px 0px;
+}
+
+.tanwaOpenScene {
+    -fx-background-radius: 0px;
+    -fx-background-color: -fx-backgroundColor-base;
+    -fx-border-color: -inspace-base-border-color;
+    -fx-border-width: 2px 0px 0px 2px;
+}
+
+.tanwaCloseScene {
+    -fx-background-radius: 0px;
+    -fx-background-color: -fx-backgroundColor-base;
+    -fx-border-color: -inspace-base-border-color;
+    -fx-border-width: 2px 2px 0px 0px;
+}
+
+
+/*Flat button example */
+.jfx-button {
+    -jfx-button-type: FLAT !important;
+    -jfx-disable-visual-focus: true !important;
+    -fx-background-color: -inspace-base-border-color;
+    -fx-text-fill: black;
+    -fx-effect: null !important;
+}
+
+.jfx-button .jfx-rippler {
+    -jfx-rippler-fill: transparent !important;
+    -fx-rippler-fill: transparent !important;
+    visibility: hidden !important;
+    display: none !important;
+}
+
+
+.jfx-button:armed,
+.jfx-button:pressed {
+    -fx-background-color: #929292 !important;
+    -fx-effect: null !important;
+}
+
+.jfx-button:hover,
+.jfx-button:focused {
+    -fx-effect: null !important;
+}
+
+
+
+/*Toggle button example */
+.jfx-toggle-button {
+    -jfx-toggle-color: white;
+    -fx-text-fill: black;
+}
+
+.label {
+    -fx-text-fill: black;
+}
+
+.jfx-combo-box {
+    -jfx-focus-color: white;
+}
+.jfx-combo-box .cell {
+    -fx-text-fill: black;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-background-color: -inspace-base-border-color;
+    -fx-text-fill: black;
+
+}
+
+.jfx-text-field {
+    -jfx-focus-color: -fx-backgroundColor-base;
+    -fx-text-fill: black;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+.tab {
+    -fx-background-color: lightgrey;
+    -fx-text-fill: black;
+    -fx-border-color: transparent;
+    -fx-border-radius: 10px;
+    -fx-border-width: 2px;
+}
+
+.tab:selected {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-padding: 5px;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+}
+
+.tab:hover {
+    -fx-background-color: darkgrey;
+}
+
+.map-cords {
+    -fx-text-fill: black;
+    -fx-background-color: rgb(255, 255, 255, 0.7);
+}
+
+.jfx-text-area {
+    -fx-background-color: -fx-backgroundColor-base;
+    -fx-text-fill: black;
+}
+

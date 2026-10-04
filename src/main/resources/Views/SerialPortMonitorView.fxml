@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TextField?>
+<?import com.jfoenix.controls.JFXButton?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="744.0" prefWidth="430.0" styleClass="baseScene" stylesheets="@constants.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pwr.pwrinspace.poliwrocket.Controller.SerialPortMonitorController">
+    <Label layoutX="22.0" layoutY="14.0" text="Serial port:" />
+    <TextField fx:id="serialPortMonitor" layoutX="22.0" layoutY="40.0" prefHeight="25.0" prefWidth="250.0"/>
+    <JFXButton fx:id="sendButton" layoutX="305.0" layoutY="40.0" text="Send"/>
+</AnchorPane>

@@ -13,96 +13,141 @@ import javafx.scene.layout.AnchorPane;
 import pl.edu.pwr.pwrinspace.poliwrocket.Model.Command.ICommand;
 import pl.edu.pwr.pwrinspace.poliwrocket.Model.SerialPort.SerialPortManager;
 
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.HashMap;
+import java.util.*;
 import java.util.stream.Collectors;
 
-public abstract class BaseCommandsController extends BasicButtonSensorController {
+// from now this controller will work similar to normal BaseButtonSensorController
+// differences
+// it's dynamic - you don't have to define its fields
+// it supports buttons with payload
+
+public abstract class BaseCommandsController extends BaseButtonSensorController {
 
     @FXML
-    private AnchorPane mainPanel;
+    protected AnchorPane mainPanel;
 
+    protected final ArrayList<String> moduleArray = new ArrayList<>();
     protected final HashMap<String, JFXTextField> inputHashMap = new HashMap<>();
+    protected final HashMap<String, Button> commandHashMap = new HashMap<>();
 
+    protected int offestY = 40;
+    protected int initY = 30;
+
+    // label
+    protected int initYLabel = 34;
+    protected boolean showLabel = true;
+    protected int labelLayoutX = 15;
+    protected int labelPrefHeight = 18;
+    protected int labelPrefWidth = 180;
+
+    // input
+    protected int inputLayoutX = 205;
+    protected int inputPrefHeight = 26;
+    protected int inputPrefWidth = 70;
+    protected String inputText = "X;Y";
+
+    // command button
+    protected int commandButtonLayoutX = 285;
+    protected int commandButtonPrefHeight = 26;
+    protected int commandButtonPrefWidth = 60;
+    protected String commandButtonText = "Send";
+
+
+    @Override
     protected void buildVisualizationMap() {
 
         mainPanel.getChildren().removeIf(node ->
-                    labelHashMap.containsValue(node)
-                   || inputHashMap.containsValue(node)
-                   || buttonHashMap.containsValue(node)
+            labelHashMap.containsValue(node)
+            || inputHashMap.containsValue(node)
+            || buttonHashMap.containsValue(node)
+            || indicatorHashMap.containsValue(node)
         );
 
         tileHashMap.clear();
         indicatorHashMap.clear();
         labelHashMap.clear();
         inputHashMap.clear();
+        buttonHashMap.clear();
+        commandHashMap.clear();
+        moduleArray.clear();
 
-        int initYLabel = 39;
-        int initYInput = 35;
-        int offsetY = 40;
+        List<ICommand> commandList = this.commands.stream().sorted(Comparator.comparing(ICommand::getCommandDescription)).collect(Collectors.toList());
 
-        for (ICommand command : this.commands.stream().sorted(Comparator.comparing(ICommand::getCommandDescription)).collect(Collectors.toList())) {
-            Label label = new Label(command.getCommandDescription());
-            JFXTextField input = new JFXTextField();
-            if(command.getPayload() == null) {
-                input.setVisible(false);
-            } else {
-                input.setText(command.getPayload());
-            }
+        for (ICommand command : commandList) {
+            String commandTriggerKey = command.getCommandTriggerKey();
 
-            input.setDisable(command.isFinal());
-
-            JFXButton button = new JFXButton("Send");
-
-            label.setLayoutX(14);
-            label.setLayoutY(initYLabel);
-            label.setPrefHeight(18);
-            label.setPrefWidth(180);
-
-            input.setLayoutX(215);
-            input.setLayoutY(initYInput);
-            input.setPrefHeight(26);
-            input.setPrefWidth(70);
-            input.setPromptText("X;Y");
-
-            button.setId(command.getCommandTriggerKey());
-            button.setLayoutX(305);
-            button.setLayoutY(initYInput);
-            button.setPrefHeight(26);
-            button.setPrefWidth(60);
-
-            mainPanel.getChildren().add(label);
-            mainPanel.getChildren().add(input);
-            mainPanel.getChildren().add(button);
-
-            labelHashMap.put(command.getCommandTriggerKey(), label);
-            inputHashMap.put(command.getCommandTriggerKey(), input);
+            var button = new JFXButton(command.getCommandDescription());
+            commandHashMap.put(commandTriggerKey, button);
             buttonHashMap.put(command.getCommandTriggerKey(), button);
 
-            initYLabel += offsetY;
-            initYInput += offsetY;
+            var input = new JFXTextField();
+            if (command.getPayload() == null) input.setVisible(false);
+            else input.setText(command.getPayload());
+            input.setDisable(command.isFinal());
+            inputHashMap.put(commandTriggerKey, input);
+            inputHashMap.put(command.getCommandTriggerKey(), input);
 
+            if (!moduleArray.contains(commandTriggerKey)) moduleArray.add(commandTriggerKey);
+        }
+
+        int initY = this.initY;
+        int initYLabel = this.initYLabel;
+        int offsetY = this.offestY;
+
+        for (String module : moduleArray) {
+            var input = inputHashMap.get(module);
+            var commandButton = commandHashMap.get(module);
+
+            if (input != null) {
+                input.setLayoutY(initY);
+                input.setLayoutX(inputLayoutX);
+                input.setPrefHeight(inputPrefHeight);
+                input.setPrefWidth(inputPrefWidth);
+                input.setPromptText(inputText);
+                mainPanel.getChildren().add(input);
+            }
+
+            if (commandButton != null) {
+                var label = new Label(commandButton.getText());
+                commandButton.setText(commandButtonText);
+                label.setVisible(showLabel);
+                label.setLayoutY(initYLabel);
+                label.setLayoutX(labelLayoutX);
+                label.setPrefHeight(labelPrefHeight);
+                label.setPrefWidth(labelPrefWidth);
+                labelHashMap.put(module, label);
+                mainPanel.getChildren().add(label);
+
+                commandButton.setLayoutY(initY);
+                commandButton.setLayoutX(commandButtonLayoutX);
+                commandButton.setPrefHeight(commandButtonPrefHeight);
+                commandButton.setPrefWidth(commandButtonPrefWidth);
+                mainPanel.getChildren().add(commandButton);
+            }
+
+            initY += offsetY;
+            initYLabel += offsetY;
         }
     }
 
     @Override
     public void assignsCommands(Collection<ICommand> commands){
-        this.commands.clear();
-        this.commands.addAll(commands);
         Platform.runLater(this::buildVisualizationMap);
         super.assignsCommands(commands);
     }
 
-    protected void setUIBySensors() {
-
-    }
-
     protected EventHandler<ActionEvent> handleButtonsClickByCommand(Button button, ICommand command){
-        return actionEvent -> executorService.execute(() -> {
-            command.setPayload(inputHashMap.get(command.getCommandTriggerKey()).getText());
-            SerialPortManager.getInstance().write(command);
-        });
+        if (commandHashMap.containsValue(button)) {
+            return actionEvent -> executorService.execute(() -> {
+                command.setPayload(inputHashMap.get(command.getCommandTriggerKey()).getText());
+                SerialPortManager.getInstance().write(command);
+            });
+        }
+        else {
+            return actionEvent -> executorService.execute(() -> {
+                SerialPortManager.getInstance().write(command);
+            });
+        }
     }
 
     @Override

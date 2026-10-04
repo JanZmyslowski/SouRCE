@@ -6,13 +6,12 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="542.0" prefWidth="205.0" styleClass="baseScene" stylesheets="@constants.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pwr.pwrinspace.poliwrocket.Controller.DataController">
-   <children>
-      <Tile fx:id="dataGauge1" layoutX="22.0" layoutY="35.0" maxHeight="135.0" maxWidth="-Infinity" prefHeight="135.0" prefWidth="170.0" skinType="SPARK_LINE" />
-      <Tile fx:id="dataGauge2" averagingPeriod="100" layoutX="22.0" layoutY="194.0" maxHeight="135.0" maxWidth="-Infinity" prefHeight="135.0" prefWidth="170.0" skinType="SPARK_LINE" />
-      <Tile fx:id="dataGauge3" layoutX="22.0" layoutY="352.0" maxHeight="135.0" prefHeight="135.0" prefWidth="170.0" skinType="SPARK_LINE" />
-      <Label layoutX="7.0" prefHeight="22.0" prefWidth="50.0" text="Data:">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
-   </children>
+   <Tile fx:id="dataGauge1" layoutX="18.0" layoutY="41.0" maxHeight="135.0" maxWidth="-Infinity" prefHeight="135.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
+   <Tile fx:id="dataGauge2" averagingPeriod="100" layoutX="18.0" layoutY="197.0" maxHeight="135.0" maxWidth="-Infinity" prefHeight="135.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
+   <Tile fx:id="dataGauge3" layoutX="18.0" layoutY="353.0" maxHeight="135.0" prefHeight="135.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
+   <Label layoutX="10.0" layoutY="7.0" prefHeight="20.0" prefWidth="50.0" text="Data:">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
 </AnchorPane>

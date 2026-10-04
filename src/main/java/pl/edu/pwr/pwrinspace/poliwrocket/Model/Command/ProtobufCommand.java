@@ -3,6 +3,8 @@ package pl.edu.pwr.pwrinspace.poliwrocket.Model.Command;
 import pl.edu.pwr.pwrinspace.poliwrocket.Model.Command.Content.ProtobufContent;
 import pl.edu.pwr.pwrinspace.poliwrocket.Model.Configuration.Configuration;
 
+import java.util.List;
+
 public class ProtobufCommand extends ProtobufBaseCommand<ProtobufContent> {
 
     @Override

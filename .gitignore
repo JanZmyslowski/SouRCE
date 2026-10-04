@@ -84,4 +84,7 @@ flightData/
 *.html
 testReport/
 *.json
+*.yaml
 !sampleconfig.json
+/config
+/.run

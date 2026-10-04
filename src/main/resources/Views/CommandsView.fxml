@@ -4,7 +4,5 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="mainPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="744.0" prefWidth="430.0" styleClass="baseScene" stylesheets="@constants.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pwr.pwrinspace.poliwrocket.Controller.CommandsController">
-   <children>
-      <Label layoutX="22.0" layoutY="14.0" text="Commands:" />
-   </children>
+   <Label layoutX="22.0" layoutY="14.0" text="Commands:" />
 </AnchorPane>

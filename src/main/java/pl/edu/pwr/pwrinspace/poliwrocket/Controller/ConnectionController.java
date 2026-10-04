@@ -30,58 +30,41 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-public class ConnectionController extends BasicButtonSensorController {
+public class ConnectionController extends BaseButtonSensorController {
 
     @FXML
     private JFXComboBox<String> serialPorts;
-
     @FXML
     protected JFXButton connectionButton;
-
     @FXML
     private JFXTextField baudRate;
-
     @FXML
     protected Label connectionStatus;
-
     @FXML
     private JFXComboBox<String> notifications;
-
     @FXML
     protected JFXButton sendNotification;
-
     @FXML
     protected Label notificationStatus;
-
     @FXML
     protected JFXButton threadButton;
-
     @FXML
     protected Label threadStatus;
-
     @FXML
     private Gauge signal;
-
     @FXML
     private JFXComboBox<ICommand> serialMessages;
-
     @FXML
     protected JFXButton sendSerialMessage;
-
-    private final ObservableList<String> availableSerialPorts = FXCollections.observableArrayList();
-
-    private final ObservableList<String> availableNotifications = FXCollections.observableArrayList();
-
-    private final ObservableList<ICommand> availableMessages = FXCollections.observableArrayList();
-
-    private NotificationSendService notificationSendService;
-
-    private INotificationThread notificationThreadRunnable;
-
-    private Thread notificationThread;
-
     @FXML
     private Switch sudoToggle;
+
+    private final ObservableList<String> availableSerialPorts = FXCollections.observableArrayList();
+    private final ObservableList<String> availableNotifications = FXCollections.observableArrayList();
+    private final ObservableList<ICommand> availableMessages = FXCollections.observableArrayList();
+    private NotificationSendService notificationSendService;
+    private INotificationThread notificationThreadRunnable;
+    private Thread notificationThread;
 
     @Override
     @FXML
@@ -175,16 +158,6 @@ public class ConnectionController extends BasicButtonSensorController {
             }
         });
     }
-
-  /*  private void serialSetup() {
-        availableSerialPorts.clear();
-        CompletableFuture.runAsync(() -> {
-            availableSerialPorts.addAll(NRSerialPort.getAvailableSerialPorts());
-            serialPorts.setItems(availableSerialPorts);
-            serialPorts.setValue(!availableSerialPorts.isEmpty() ? availableSerialPorts.get(0) : "No ports available");
-        });
-    }  */
-
     private void serialSetup() {
         try {
             final Set<String> ports = executorService.submit(NRSerialPort::getAvailableSerialPorts).get(30, TimeUnit.SECONDS);
@@ -216,9 +189,7 @@ public class ConnectionController extends BasicButtonSensorController {
     }
 
     @Override
-    protected void buildVisualizationMap() {
-
-    }
+    protected void buildVisualizationMap() {}
 
     @Override
     public void invalidated(Observable observable) {

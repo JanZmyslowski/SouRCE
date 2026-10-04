@@ -1,1 +1,1 @@
-protoc --java_out=./src/main/java ./src/main/resources/frames.proto
+protoc --java_out=./src/main/java ./src/main/resources/frames.proto --experimental_allow_proto3_optional

@@ -15,8 +15,8 @@ public  class ErrorsController extends BaseInterpretersController {
 
         int layoutX = 14;
         int layoutY = 8;
-        int labelWidth = 110;
-        int valueWidth = 80;
+        int labelWidth = 150;
+        int valueWidth = 100;
         int height = 18;
 
         int element = 0;
@@ -24,9 +24,9 @@ public  class ErrorsController extends BaseInterpretersController {
             if(element < MAX_ELEMENTS) {
                 if(element != 0 && element % 2 == 0) {
                     layoutY += 26;
-                    layoutX -= 185;
+                    layoutX -= 265;
                 } else if(element % 2 != 0){
-                    layoutX += 185;
+                    layoutX += 265;
                 }
 
                 Label label = new Label();
@@ -39,7 +39,7 @@ public  class ErrorsController extends BaseInterpretersController {
                 label.setPrefWidth(labelWidth);
                 label.setVisible(true);
 
-                value.setLayoutX(layoutX + 116);
+                value.setLayoutX(layoutX + 150);
                 value.setLayoutY(layoutY);
                 value.setPrefHeight(height);
                 value.setPrefWidth(valueWidth);

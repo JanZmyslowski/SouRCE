@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.edu.pwr.pwrinspace.poliwrocket.Controller.BasicController;
+import pl.edu.pwr.pwrinspace.poliwrocket.Controller.BaseController;
 import pl.edu.pwr.pwrinspace.poliwrocket.Controller.ConnectionController;
 import pl.edu.pwr.pwrinspace.poliwrocket.Controller.MainController;
 import pl.edu.pwr.pwrinspace.poliwrocket.Controller.RAWDataController;
@@ -77,7 +77,7 @@ public class Main extends Application {
                 logger.error(Arrays.toString(e.getStackTrace()));
                 logger.error(e.toString());
                 modelAsJsonSaveService.persistOldFile(new ConfigurationSaveModel());
-               // modelAsJsonSaveService.saveToFile(ConfigurationSaveModel.defaultConfiguration());
+                //modelAsJsonSaveService.saveToFile(ConfigurationSaveModel.defaultConfiguration());
                 //Configuration.getInstance().setupConfigInstance((ConfigurationSaveModel) modelAsJsonSaveService.readFromFile(new ConfigurationSaveModel()));
                 return;
             }
@@ -114,7 +114,10 @@ public class Main extends Application {
                     .forEach(p -> {
                         if (p.getFileName().toString().endsWith("View.fxml")) {
                             try {
-                                loaders.put(p.getFileName().toString(), new FXMLLoader(p.toUri().toURL()));
+                                if(!p.getFileName().toString().equals("DetachedTabView.fxml")){
+                                    loaders.put(p.getFileName().toString(), new FXMLLoader(p.toUri().toURL()));
+                                }
+
                             } catch (MalformedURLException e) {
                                 e.printStackTrace();
                             }
@@ -131,9 +134,9 @@ public class Main extends Application {
             mainController.initSubScenes(loaders.values().stream().filter(loader -> loader != loaderMain).collect(Collectors.toList()));
             mainController.setPrimaryStage(primaryStage);
 
-            HashMap<String, BasicController> controllerList = new HashMap<>();
+            HashMap<String, BaseController> controllerList = new HashMap<>();
             loaders.values().forEach(loader -> {
-                BasicController controller = loader.getController();
+                BaseController controller = loader.getController();
                 controllerList.put(controller.getClass().getSimpleName(), controller);
             });
 
@@ -215,11 +218,11 @@ public class Main extends Application {
 
             //Stage settings
             primaryStage.setTitle("SouRCE");
-            primaryStage.setMaximized(true);
             primaryStage.setScene(scene);
             primaryStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("Poliwrocket.png"))));
             primaryStage.heightProperty().addListener(mainController);
             primaryStage.widthProperty().addListener(mainController);
+            primaryStage.setMaximized(true);
             primaryStage.setOnShown(windowEvent -> {
                 UIThreadManager.getInstance().start();
                 AppStateLogger.getInstance().start();

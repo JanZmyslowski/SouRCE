@@ -18,6 +18,11 @@ public class UIHelper {
             case CLOSE:
                 return Color.TRANSPARENT;
             case INFO:
+                return Color.GREY;
+            case PUSH:
+                return Color.YELLOW;
+            case PULL:
+                return Color.GREEN;
             default:
                 return Color.WHITE;
         }

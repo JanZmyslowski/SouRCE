@@ -1,97 +1,125 @@
 package pl.edu.pwr.pwrinspace.poliwrocket.Controller;
 
-import eu.hansolo.medusa.Gauge;
+import eu.hansolo.tilesfx.addons.Indicator;
 import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
-import org.javatuples.Triplet;
 import pl.edu.pwr.pwrinspace.poliwrocket.Model.Sensor.ISensor;
 import pl.edu.pwr.pwrinspace.poliwrocket.Thred.UI.UIThreadManager;
-
+import java.lang.reflect.Field;
 import java.util.HashMap;
+import java.util.LinkedList;
 
-public class PowerController extends BasicSensorController {
-
-    @FXML
-    private Gauge powerGauge4;
-
-    @FXML
-    private Gauge powerGauge5;
-
-    @FXML
-    private Gauge powerGauge6;
-
-    @FXML
-    private Gauge powerGauge3;
-
-    @FXML
-    private Gauge powerGauge7;
-
-    @FXML
-    private Gauge powerGauge2;
-
-    @FXML
-    private Gauge powerGauge1;
-
-    @FXML
-    protected Label powerLabel7;
-
-    @FXML
-    protected Label powerLabel6;
-
-    @FXML
-    protected Label powerLabel5;
-
-    @FXML
-    protected Label powerLabel4;
-
-    @FXML
-    protected Label powerLabel3;
-
-    @FXML
-    protected Label powerLabel2;
-
+public class PowerController extends BaseSensorController {
     @FXML
     protected Label powerLabel1;
     @FXML
-    protected Label powerValue1;
+    protected Label powerLabel2;
+    @FXML
+    protected Label powerLabel3;
+    @FXML
+    protected Label powerLabel4;
+    @FXML
+    protected Label powerLabel5;
+    @FXML
+    protected Label powerLabel6;
+    @FXML
+    protected Label powerLabel7;
+    @FXML
+    protected Label powerLabel8;
 
     @FXML
-    protected Label powerValue2;
+    protected Label powerTemperature1;
+    @FXML
+    protected Label powerTemperature2;
+    @FXML
+    protected Label powerTemperature3;
+    @FXML
+    protected Label powerTemperature4;
+    @FXML
+    protected Label powerTemperature5;
+    @FXML
+    protected Label powerTemperature6;
+    @FXML
+    protected Label powerTemperature7;
+    @FXML
+    protected Label powerTemperature8;
 
     @FXML
-    protected Label powerValue3;
+    protected Label powerVoltage1;
+    @FXML
+    protected Label powerVoltage2;
+    @FXML
+    protected Label powerVoltage3;
+    @FXML
+    protected Label powerVoltage4;
+    @FXML
+    protected Label powerVoltage5;
+    @FXML
+    protected Label powerVoltage6;
+    @FXML
+    protected Label powerVoltage7;
+    @FXML
+    protected Label powerVoltage8;
 
     @FXML
-    protected Label powerValue4;
+    protected Label powerConsumption1;
+    @FXML
+    protected Label powerConsumption2;
+    @FXML
+    protected Label powerConsumption3;
+    @FXML
+    protected Label powerConsumption4;
+    @FXML
+    protected Label powerConsumption5;
+    @FXML
+    protected Label powerConsumption6;
+    @FXML
+    protected Label powerConsumption7;
+    @FXML
+    protected Label powerConsumption8;
 
     @FXML
-    protected Label powerValue5;
-
+    protected Indicator powerIndicator1;
     @FXML
-    protected Label powerValue6;
-
+    protected Indicator powerIndicator2;
     @FXML
-    protected Label powerValue7;
+    protected Indicator powerIndicator3;
+    @FXML
+    protected Indicator powerIndicator4;
+    @FXML
+    protected Indicator powerIndicator5;
+    @FXML
+    protected Indicator powerIndicator6;
+    @FXML
+    protected Indicator powerIndicator7;
+    @FXML
+    protected Indicator powerIndicator8;
 
-    private final HashMap<String, Triplet<Gauge, Label, Label>> powerHashMap = new HashMap<>();
+    protected HashMap<String, Label> labelHashMap = new HashMap<>();
+    protected HashMap<String, Indicator> indicatorHashMap = new HashMap<>();
 
     @Override
     protected void buildVisualizationMap() {
-        powerHashMap.put(powerGauge1.getId(), new Triplet<>(powerGauge1, powerLabel1, powerValue1));
-        powerHashMap.put(powerGauge2.getId(), new Triplet<>(powerGauge2, powerLabel2, powerValue2));
-        powerHashMap.put(powerGauge3.getId(), new Triplet<>(powerGauge3, powerLabel3, powerValue3));
-        powerHashMap.put(powerGauge4.getId(), new Triplet<>(powerGauge4, powerLabel4, powerValue4));
-        powerHashMap.put(powerGauge5.getId(), new Triplet<>(powerGauge5, powerLabel5, powerValue5));
-        powerHashMap.put(powerGauge6.getId(), new Triplet<>(powerGauge6, powerLabel6, powerValue6));
-        powerHashMap.put(powerGauge7.getId(), new Triplet<>(powerGauge7, powerLabel7, powerValue7));
+        labelHashMap.clear();
+        indicatorHashMap.clear();
 
-        powerHashMap.forEach((s, tuple) -> {
-            tuple.getValue0().setVisible(false);
-            tuple.getValue1().setVisible(false);
-            tuple.getValue2().setVisible(false);
-        });
+        var fields = getAllFields(new LinkedList<>(), this.getClass());
+
+        for (Field declaredField : fields) {
+            try {
+                if (declaredField.getType().isAssignableFrom(Label.class)) {
+                    ((Label) declaredField.get(this)).setVisible(false);
+                    labelHashMap.put(declaredField.getName(), (Label) declaredField.get(this));
+                }
+                else if (declaredField.getType().isAssignableFrom(Indicator.class)) {
+                    ((Indicator) declaredField.get(this)).setVisible(false);
+                    indicatorHashMap.put(declaredField.getName(), (Indicator) declaredField.get(this));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -99,8 +127,13 @@ public class PowerController extends BasicSensorController {
         if (observable instanceof ISensor) {
             var sensor = ((ISensor) observable);
             UIThreadManager.getInstance().addNormal(() -> {
-                powerHashMap.get(sensor.getDestination()).getValue0().setValue(Math.round((sensor.getValue() - sensor.getMinRange())/(sensor.getMaxRange()-sensor.getMinRange())*1000)/10.0);
-                powerHashMap.get(sensor.getDestination()).getValue2().setText((Math.round(sensor.getValue()*100)/100.0) + sensor.getUnit());
+                String destination = sensor.getDestination();
+                if (labelHashMap.get(destination) != null) {
+                    labelHashMap.get(destination).setText(Math.round(sensor.getValue() * 100.0) / 100.0 + " " + sensor.getUnit());
+                }
+                else if (indicatorHashMap.get(destination) != null) {
+                    indicatorHashMap.get(destination).setOn(sensor.getValue() == 1);
+                }
             });
         }
     }
@@ -108,19 +141,17 @@ public class PowerController extends BasicSensorController {
     @Override
     protected void setUIBySensors() {
         for (ISensor sensor : sensors) {
-            var triplet = powerHashMap.get(sensor.getDestination());
-            if (triplet != null) {
-                triplet.getValue0().setVisible(true);
-                triplet.getValue0().setThresholdColor(Color.BLUE);
-                triplet.getValue0().setValueVisible(true);
-                triplet.getValue0().setThresholdVisible(true);
-                triplet.getValue0().setUnit(sensor.getUnit());
-                triplet.getValue1().setVisible(true);
-                triplet.getValue1().setText(sensor.getName());
-                triplet.getValue2().setVisible(true);
-            } else {
-                logger.error("Wrong UI binding - destination not found: {}",sensor.getDestination());
+            if (sensor.getDestination().startsWith("powerVoltage")) {
+                var title = labelHashMap.get(sensor.getDestination().replace("Voltage", "Label"));
+                title.setVisible(true);
+                title.setText(sensor.getName());
             }
+            var label = labelHashMap.get(sensor.getDestination());
+            var indicator = indicatorHashMap.get(sensor.getDestination());
+
+            if (label != null) label.setVisible(true);
+            else if (indicator != null) indicator.setVisible(true);
+            else logger.error("Wrong UI binding - destination not found: {}", sensor.getDestination());
         }
     }
 }

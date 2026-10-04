@@ -37,9 +37,9 @@ class ConfigurationTest {
         // Setup
 
         //prepare mocks
-        var mockControllerS = mock(BasicSensorController.class);
+        var mockControllerS = mock(BaseSensorController.class);
         var mockControllerB = mock(BasicButtonController.class);
-        var mockControllerBS = mock(BasicButtonSensorController.class);
+        var mockControllerBS = mock(BaseButtonSensorController.class);
         when(mockControllerB.getControllerNameEnum()).thenReturn(ControllerNameEnum.START_CONTROL_CONTROLLER);
         when(mockControllerS.getControllerNameEnum()).thenReturn(ControllerNameEnum.DATA_CONTROLLER);
         when(mockControllerBS.getControllerNameEnum()).thenReturn(ControllerNameEnum.VALVES_CONTROLLER);
@@ -70,7 +70,7 @@ class ConfigurationTest {
         when(mockCommandBS3.getDestinationControllerNames()).thenReturn(Arrays.asList(ControllerNameEnum.VALVES_CONTROLLER));
 
         //prepare func arg
-       final List<BasicController> controllerList = List.of(mockControllerS,mockControllerB,mockControllerBS);
+       final List<BaseController> controllerList = List.of(mockControllerS,mockControllerB,mockControllerBS);
         //prepare config instance
         Configuration.getInstance().sensorRepository = new SensorRepository();
         Configuration.getInstance().commandsList = new ArrayList<>();
@@ -100,9 +100,9 @@ class ConfigurationTest {
         // Setup
 
         //prepare mocks
-        var mockControllerS = mock(BasicSensorController.class);
+        var mockControllerS = mock(BaseSensorController.class);
         var mockControllerB = mock(BasicButtonController.class);
-        var mockControllerBS = mock(BasicButtonSensorController.class);
+        var mockControllerBS = mock(BaseButtonSensorController.class);
         when(mockControllerB.getControllerNameEnum()).thenReturn(ControllerNameEnum.START_CONTROL_CONTROLLER);
         when(mockControllerS.getControllerNameEnum()).thenReturn(ControllerNameEnum.DATA_CONTROLLER);
         when(mockControllerBS.getControllerNameEnum()).thenReturn(ControllerNameEnum.VALVES_CONTROLLER);
@@ -133,7 +133,7 @@ class ConfigurationTest {
         when(mockCommandBS3.getDestinationControllerNames()).thenReturn(Arrays.asList(ControllerNameEnum.VALVES_CONTROLLER));
 
         //prepare func arg
-       final List<BasicController> controllerList = new LinkedList<>();
+       final List<BaseController> controllerList = new LinkedList<>();
         //prepare config instance
         Configuration.getInstance().sensorRepository = new SensorRepository();
         Configuration.getInstance().commandsList = new ArrayList<>();

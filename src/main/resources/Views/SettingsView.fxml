@@ -4,11 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import com.jfoenix.controls.JFXToggleButton?>
 <AnchorPane fx:id="mainPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="430.0" styleClass="baseScene" stylesheets="@constants.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pwr.pwrinspace.poliwrocket.Controller.SettingsController">
-   <children>
-      <JFXButton fx:id="applyButton" layoutX="369.0" layoutY="611.0" mnemonicParsing="false" text="Apply" />
-      <Label layoutX="215.0" layoutY="14.0" text="Tare value:" />
-      <Label layoutX="22.0" layoutY="14.0" text="Sensor:" />
-      <JFXButton fx:id="reloadButton" layoutX="15.0" layoutY="611.0" mnemonicParsing="false" text="Reload config" />
-   </children>
+<children>
+   <JFXButton fx:id="applyButton" layoutX="369.0" layoutY="390.0" mnemonicParsing="false" text="Apply" />
+   <Label layoutX="215.0" layoutY="14.0" text="Tare value:" />
+   <Label layoutX="22.0" layoutY="14.0" text="Sensor:" />
+   <JFXButton fx:id="reloadButton" layoutX="15.0" layoutY="350.0" mnemonicParsing="false" text="Reload config" />
+   <JFXToggleButton fx:id="lightModeToggle" onAction="#onToggleLightMode" layoutX="15.0" layoutY="370.0" mnemonicParsing="false" text="Change to light mode" />
+</children>
 </AnchorPane>

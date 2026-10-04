@@ -19,8 +19,7 @@ import pl.edu.pwr.pwrinspace.poliwrocket.Thred.UI.UIThreadManager;
 
 import java.util.HashMap;
 
-public class RocketSettingsController extends BasicButtonSensorController {
-
+public class RocketSettingsController extends BaseButtonSensorController {
     @FXML
     private AnchorPane mainPanel;
 
@@ -29,7 +28,6 @@ public class RocketSettingsController extends BasicButtonSensorController {
 
     @Override
     protected void buildVisualizationMap() {
-
         mainPanel.getChildren().removeIf(node ->
                     labelHashMap.containsValue(node)
                    || valueHashMap.containsValue(node)
@@ -56,7 +54,7 @@ public class RocketSettingsController extends BasicButtonSensorController {
                 Double defaultValue = settingsSensor.getDefaultValue();
                 JFXTextField input = new JFXTextField();
 
-                if(defaultValue == null) {
+                if (defaultValue == null) {
                     input.setVisible(false);
                 } else {
                     input.setText(Double.toString(defaultValue));
@@ -68,7 +66,7 @@ public class RocketSettingsController extends BasicButtonSensorController {
                 label.setLayoutX(14);
                 label.setLayoutY(initYLabel);
                 label.setPrefHeight(18);
-                label.setPrefWidth(80);
+                label.setPrefWidth(150);
 
                 value.setId(settingsSensor.getDestination());
                 value.setLayoutX(112);
@@ -103,16 +101,19 @@ public class RocketSettingsController extends BasicButtonSensorController {
         }
     }
 
-    protected void setUIBySensors() {
+    protected void setUIBySensors() {}
 
-    }
-
-    protected EventHandler<ActionEvent> handleButtonsClickByCommand(Button button, ICommand command){
+    protected EventHandler<ActionEvent> handleButtonsClickByCommand(Button button, ICommand command) {
         return actionEvent -> executorService.execute(() -> {
             var input = inputHashMap.get(((ISettingsSensor)command).getInputKey());
             if(input.isVisible())
                 command.setPayload(input.getText());
             SerialPortManager.getInstance().write(command);
+            String comStr = command.getCommandValueAsString();
+
+            if (comStr.contains("0x10")) {
+                SerialPortManager.getInstance().writeWithoutCRC("GS;FREQ;" + command.getPayload());
+            }
         });
     }
 
@@ -120,7 +121,7 @@ public class RocketSettingsController extends BasicButtonSensorController {
     public void invalidated(Observable observable) {
         try {
             if(observable instanceof SettingsSensor) {
-                var sensor = (SettingsSensor)observable;
+                var sensor = (SettingsSensor) observable;
                 UIThreadManager.getInstance().addImmediateOnOK(() -> valueHashMap.get(sensor.getDestination()).setText(Double.toString(sensor.getValue())));
             } else {
                 logger.error("Controller has been notified but there was no action.");

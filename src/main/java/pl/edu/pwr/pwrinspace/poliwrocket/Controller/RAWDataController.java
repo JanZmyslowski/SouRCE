@@ -14,7 +14,7 @@ import pl.edu.pwr.pwrinspace.poliwrocket.Thred.UI.UIThreadManager;
 
 import java.time.Instant;
 
-public class RAWDataController extends BasicSensorController {
+public class RAWDataController extends BaseSensorController {
 
     @FXML
     private JFXTextArea rawDataPanel;

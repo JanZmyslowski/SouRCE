@@ -17,24 +17,20 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapController extends BasicController {
+
+// todo dodajmy w końcu obslugę mapy :)))
+public class MapController extends BaseController {
 
     private static final int ZOOM_DEFAULT = 60;
-
     private static final double MAP_START_CORRECTION = 0.017;
 
-    @FXML
-    private MapView mapView;
-
-    @FXML
-    private JFXTextField currentLocation;
-
-    @FXML
-    protected Label currentDistance;
+    @FXML private MapView mapView;
+    @FXML private JFXTextField currentLocation;
+    @FXML protected Label currentDistance;
 
     private CoordinateLine track;
 
-
+    @Override
     @FXML
     protected void initialize() {
         initMapAndControls(Projection.WEB_MERCATOR);

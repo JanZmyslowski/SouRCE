@@ -2,12 +2,11 @@ package pl.edu.pwr.pwrinspace.poliwrocket.Controller;
 
 import javafx.beans.Observable;
 import javafx.scene.paint.Color;
-import pl.edu.pwr.pwrinspace.poliwrocket.Model.Sensor.FillingLevelSensor;
 import pl.edu.pwr.pwrinspace.poliwrocket.Model.Sensor.IAlert;
 import pl.edu.pwr.pwrinspace.poliwrocket.Model.Sensor.ISensor;
 import pl.edu.pwr.pwrinspace.poliwrocket.Thred.UI.UIThreadManager;
 
-public abstract class BaseDataTilesController extends BasicTilesFXSensorController {
+public abstract class BaseDataTilesController extends BaseTilesFXSensorController {
 
     @Override
     public void invalidated(Observable observable) {
@@ -21,9 +20,6 @@ public abstract class BaseDataTilesController extends BasicTilesFXSensorControll
                     } else {
                         gauge.setValueColor(Color.WHITE);
                     }
-                }
-                if(sensor instanceof FillingLevelSensor){
-                    var k = sensor.getValue();
                 }
                 gauge.setValue(sensor.getValue());
             });

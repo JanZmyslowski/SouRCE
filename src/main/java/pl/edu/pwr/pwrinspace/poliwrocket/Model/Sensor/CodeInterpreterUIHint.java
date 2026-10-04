@@ -7,5 +7,8 @@ public enum CodeInterpreterUIHint {
     INFO,
     OPEN,
     CLOSE,
-    SUCCESS
+    SUCCESS,
+    PUSH,
+    PULL,
+    STOP
 }

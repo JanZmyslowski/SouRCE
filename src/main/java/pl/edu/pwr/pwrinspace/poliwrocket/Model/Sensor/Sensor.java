@@ -17,47 +17,37 @@ public class Sensor implements Observable, ISensor, IUIUpdateEventListener {
 
     @Expose
     private String destination = "";
-
     @Expose
-    private String name;
-
+    private String name = "";
     @Expose
     private String unit = "";
-
-    private Instant timeStamp;
-
-    private Instant previousTimeStamp;
-
-    private Instant lastAveragingTimeStamp = Instant.now();
-    private boolean shouldNotify = false;
-
     @Expose
     private List<String> destinationControllerNames = new ArrayList<>();
-
     @Expose
     private double maxRange = 0;
-
     @Expose
     private double minRange = 0;
-
     @Expose
     private boolean isBoolean = false;
-
     @Expose
     private String interpreterKey;
-
     @Expose
     private boolean hidden = false;
-
-    private CodeInterpreter interpreter;
+    @Expose
+    private int precision = 1;
 
     protected double value = 0;
 
-    private double previousReportedValue = 0;
-
-    private double maxValue = Double.MIN_VALUE;
+    private CodeInterpreter interpreter;
 
     private List<Double> values = new LinkedList<>();
+
+    private Instant timeStamp;
+    private Instant previousTimeStamp;
+    private Instant lastAveragingTimeStamp = Instant.now();
+    private boolean shouldNotify = false;
+    private double previousReportedValue = 0;
+    private double maxValue = -10.0;
 
     public Sensor() {
         this.timeStamp = Instant.now();
@@ -104,7 +94,7 @@ public class Sensor implements Observable, ISensor, IUIUpdateEventListener {
 
     @Override
     public InterpreterValue getCodeMeaning() {
-        if(interpreter == null) {
+        if (interpreter == null) {
            throw new RuntimeException("Interpreter not set");
         }
 
@@ -215,7 +205,7 @@ public class Sensor implements Observable, ISensor, IUIUpdateEventListener {
 
     @Override
     public double getValue() {
-        return value;
+        return value / precision;
     }
 
     @Override

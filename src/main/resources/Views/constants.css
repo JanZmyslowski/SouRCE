@@ -11,17 +11,53 @@
     -fx-border-width: 2px;
 }
 
-/*Flat button example */
-.jfx-button {
-    -jfx-button-type: FLAT;
-    -fx-background-color: #007383;
-    -fx-text-fill: black;
+.valvesScene {
+    -fx-background-radius: 6px;
+    -fx-background-color: -fx-backgroundColor-base;
+    -fx-border-color: -inspace-base-border-color;
+    -fx-border-width: 2px 2px 0px 2px;
 }
 
-/*Raised button example */
+.timesOpenCommandsScene {
+    -fx-background-radius: 6px;
+    -fx-background-color: -fx-backgroundColor-base;
+    -fx-border-color: -inspace-base-border-color;
+    -fx-border-width: 0px 2px 2px 2px;
+}
+
+/*Flat button example */
 .jfx-button {
-    -jfx-button-type: RAISED;
+    -jfx-button-type: FLAT !important;
+    -jfx-disable-visual-focus: true !important;
     -fx-background-color: #004162;
+    -fx-text-fill: white;
+    -fx-effect: null !important;
+}
+
+.jfx-button .jfx-rippler {
+    -jfx-rippler-fill: transparent !important;
+    -fx-rippler-fill: transparent !important;
+    visibility: hidden !important;
+    display: none !important;
+}
+
+
+.jfx-button:armed,
+.jfx-button:pressed {
+    -fx-background-color: #00283c !important;
+    -fx-effect: null !important;
+}
+
+.jfx-button:hover,
+.jfx-button:focused {
+    -fx-effect: null !important;
+}
+
+
+
+/*Toggle button example */
+.jfx-toggle-button {
+    -jfx-toggle-color: black;
     -fx-text-fill: white;
 }
 
@@ -44,6 +80,32 @@
 .jfx-text-field {
     -jfx-focus-color: white;
     -fx-text-fill: white;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+.tab {
+    -fx-background-color: darkgrey;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+    -fx-border-radius: 10px;
+    -fx-border-width: 2px;
+}
+
+.tab:selected {
+    -fx-background-color: lightgrey;
+    -fx-text-fill: white;
+    -fx-padding: 5px;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+}
+
+.tab:hover {
+    -fx-background-color: lightgrey;
 }
 
 .map-cords {

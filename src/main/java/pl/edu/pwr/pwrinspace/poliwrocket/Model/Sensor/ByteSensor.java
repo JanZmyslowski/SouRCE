@@ -18,18 +18,6 @@ public class ByteSensor extends Sensor implements ISensorsWrapper {
         return sensors;
     }
 
-   /* @Override
-    protected void notifyObserver() {
-        int valasInt= (int)this.getValue();
-        String values = String.format("%" + 8 + "s", Integer.toBinaryString(valasInt)).replaceAll(" ", "0");
-        int k = 0;
-        if(values.length() == 8)
-            for (int i = values.length() - 1; i >= 0; i--) {
-                sensors[k].setValue(bitToDouble(values.charAt(i)));
-                k++;
-            }
-    }*/
-
     @Override
     protected void notifyObserver() {
         int valueInt = (int)this.getValue();

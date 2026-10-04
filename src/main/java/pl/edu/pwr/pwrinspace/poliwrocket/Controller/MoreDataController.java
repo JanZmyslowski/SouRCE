@@ -12,37 +12,28 @@ import pl.edu.pwr.pwrinspace.poliwrocket.Thred.UI.UIThreadManager;
 
 import java.util.HashMap;
 
-public class MoreDataController extends BasicSensorController {
+public class MoreDataController extends BaseSensorController {
 
     private final static Double thresholdPercent = 0.8;
 
     @FXML
     private Gauge dataGauge9;
-
     @FXML
     private Gauge dataGauge10;
-
     @FXML
     protected Indicator dataIndicator1;
-
     @FXML
     protected Indicator dataIndicator2;
-
     @FXML
     protected Indicator dataIndicator4;
-
     @FXML
     protected Indicator dataIndicator3;
-
     @FXML
     protected Label indicatorLabel1;
-
     @FXML
     protected Label indicatorLabel2;
-
     @FXML
     protected Label indicatorLabel3;
-
     @FXML
     protected Label indicatorLabel4;
 
