@@ -119,6 +119,8 @@ public class MainController extends BaseController implements InvalidationListen
     private SubScene testCommandsScene;
     @FXML
     private SubScene fuelingCalculatorScene;
+    @FXML
+    private SubScene fanControlScene;
 
     private final SmartGroup root = new SmartGroup();
     private Stage primaryStage;

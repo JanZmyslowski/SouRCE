@@ -74,7 +74,12 @@ public class SettingsSensor extends Sensor implements ISettingsSensor, ICommand 
     }
 
     @Override
-    public String getGPIOPin() {
-        return command.getGPIOPin();
+    public String getGPIORising() {
+        return command.getGPIORising();
+    }
+
+    @Override
+    public String getGPIOFalling() {
+        return command.getGPIOFalling();
     }
 }

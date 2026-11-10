@@ -22,7 +22,9 @@ public class Command<T> implements ICommand {
     @Expose
     private List<String> destinationControllerNames = new ArrayList<>();
     @Expose
-    private String GPIOPin = "";
+    private String GPIOFalling = "";
+    @Expose
+    private String GPIORising = "";
 
     @Override
     public String toString() {
@@ -93,7 +95,12 @@ public class Command<T> implements ICommand {
     }
 
     @Override
-    public String getGPIOPin() {
-        return GPIOPin;
+    public String getGPIORising() {
+        return GPIORising;
+    }
+
+    @Override
+    public String getGPIOFalling() {
+        return GPIOFalling;
     }
 }

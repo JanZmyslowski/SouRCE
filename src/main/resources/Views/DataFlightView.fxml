@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import eu.hansolo.tilesfx.Tile?>
-<?import javafx.scene.SubScene?>
-<?import javafx.scene.control.Label?>
+<?import eu.hansolo.tilesfx.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.text.Font?>
-
 <AnchorPane prefHeight="680.0" prefWidth="410.0" styleClass="baseScene" stylesheets="@constants.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pwr.pwrinspace.poliwrocket.Controller.DataFlightController">
    <Tile fx:id="dataGauge1" layoutX="22.0" layoutY="35.0" maxHeight="135.0" maxWidth="-Infinity" prefHeight="135.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
    <Tile fx:id="dataGauge2" animated="false" autoScale="false" averageVisible="true" averagingEnabled="true" layoutX="217.0" layoutY="35.0" maxHeight="135.0" maxWidth="-Infinity" prefHeight="142.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
@@ -15,13 +10,4 @@
    <Tile fx:id="dataGauge5" layoutX="22.0" layoutY="352.0" maxHeight="135.0" prefHeight="135.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
    <Tile fx:id="dataGauge6" layoutX="217.0" layoutY="352.0" maxHeight="135.0" prefHeight="135.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
    <Tile fx:id="dataGauge7" layoutX="22.0" layoutY="509.0" maxHeight="135.0" prefHeight="135.0" prefWidth="170.0" skinType="SPARK_LINE" textSize="BIGGER"/>
-   <SubScene fx:id="modelScene" height="135.0" layoutX="217.0" layoutY="509.0" width="170.0">
-     <root>
-       <Region />
-     </root>
-   </SubScene>
-   <Label layoutX="7.0" prefHeight="22.0" prefWidth="50.0" text="Data:">
-      <font>
-         <Font size="18.0" />
-      </font></Label>
 </AnchorPane>

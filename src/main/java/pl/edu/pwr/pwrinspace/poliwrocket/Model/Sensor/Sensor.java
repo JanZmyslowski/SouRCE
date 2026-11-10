@@ -5,6 +5,7 @@ import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import org.jetbrains.annotations.NotNull;
 import pl.edu.pwr.pwrinspace.poliwrocket.Event.IUIUpdateEventListener;
+import pl.edu.pwr.pwrinspace.poliwrocket.Model.Configuration.HardwareConfig;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -12,29 +13,19 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Sensor implements Observable, ISensor, IUIUpdateEventListener {
-
     public List<InvalidationListener> observers = new ArrayList<>();
 
-    @Expose
-    private String destination = "";
-    @Expose
-    private String name = "";
-    @Expose
-    private String unit = "";
-    @Expose
-    private List<String> destinationControllerNames = new ArrayList<>();
-    @Expose
-    private double maxRange = 0;
-    @Expose
-    private double minRange = 0;
-    @Expose
-    private boolean isBoolean = false;
-    @Expose
-    private String interpreterKey;
-    @Expose
-    private boolean hidden = false;
-    @Expose
-    private int precision = 1;
+    @Expose private String destination = "";
+    @Expose private String name = "";
+    @Expose private String unit = "";
+    @Expose private List<String> destinationControllerNames = new ArrayList<>();
+    @Expose private double maxRange = 0;
+    @Expose private double minRange = 0;
+    @Expose private boolean isBoolean = false;
+    @Expose private String interpreterKey;
+    @Expose private boolean hidden = false;
+    @Expose private int precision = 1;
+    @Expose private String GPIOPin = "";
 
     protected double value = 0;
 
@@ -136,21 +127,6 @@ public class Sensor implements Observable, ISensor, IUIUpdateEventListener {
     public void setValue(double newValue) {
         this.values.add(newValue);
         Instant currentTimeStamp = Instant.now();
- //       long currentTime = currentTimeStamp.toEpochMilli();
-
-//        if (isBoolean || currentTime - this.timeStamp.toEpochMilli() >=  1000) {
-//            this.previousReportedValue = this.value;
-//            this.value = newValue;
-//            this.shouldNotify = true;
-//        } else if (currentTime - this.lastAveragingTimeStamp.toEpochMilli() >= Configuration.getInstance().AVERAGING_PERIOD) {
-//            this.previousReportedValue = this.value;
-//            this.value = this.getAverage();
-//            this.lastAveragingTimeStamp = currentTimeStamp;
-//            this.values.clear();
-//            this.shouldNotify = true;
-//        } else {
-//            this.value = newValue;
-//        }
 
         this.previousReportedValue = this.value;
         this.value = newValue;
@@ -160,14 +136,11 @@ public class Sensor implements Observable, ISensor, IUIUpdateEventListener {
             this.maxValue = this.value;
         }
 
-        //protect overflow
-//        if(this.values.size() > 500) {
-//            this.values = new ArrayList<>();
-//            this.values.add(this.previousReportedValue);
-//            this.values.add(this.value);
-//        }
         this.previousTimeStamp = this.timeStamp;
         this.timeStamp = currentTimeStamp;
+
+        updateHardware(this.value);
+
         notifyObserver();
     }
 
@@ -257,5 +230,21 @@ public class Sensor implements Observable, ISensor, IUIUpdateEventListener {
     @Override
     public void onUIUpdateEvent() {
         notifyObserver();
+    }
+
+    public String getGPIOPin() {
+        return GPIOPin;
+    }
+
+    private void updateHardware(double value) {
+        boolean on = value > 0;
+
+        if (HardwareConfig.getDigitalOutput(name) != null) {
+            if (on) {
+                HardwareConfig.getDigitalOutput(name).high();
+            } else {
+                HardwareConfig.getDigitalOutput(name).low();
+            }
+        }
     }
 }

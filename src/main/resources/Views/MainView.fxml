@@ -195,6 +195,11 @@
                             <Region />
                         </root>
                     </SubScene>
+                    <SubScene fx:id="fanControlScene" height="96.0" layoutX="680.0" width="128.0">
+                        <root>
+                            <Region />
+                        </root>
+                    </SubScene>
                     <SubScene fx:id="othersIndicatorsScene" height="75.0" layoutX="340.0" layoutY="600.0" width="400.0">
                         <root>
                             <Region />

@@ -15,25 +15,11 @@ public class GPSSensor implements Observable, IGPSSensor, IUIUpdateEventListener
 
     List<InvalidationListener> observers = new ArrayList<>();
 
-    @Expose
-    private List<String> destinationControllerNames = new ArrayList<>();
+    @Expose private List<String> destinationControllerNames = new ArrayList<>();
+    @Expose private Sensor latitude;
 
-    @Expose
-    private Sensor latitude;
-
-    public Sensor getLatitude() {
-        return latitude;
-    }
-
-    public Sensor getLongitude() {
-        return longitude;
-    }
-
-    @Expose
-    private Sensor longitude;
-
+    @Expose private Sensor longitude;
     private boolean isLatUpToDate = false;
-
     private boolean isLongUpToDate = false;
 
     public GPSSensor() {
@@ -42,6 +28,14 @@ public class GPSSensor implements Observable, IGPSSensor, IUIUpdateEventListener
     public GPSSensor(Sensor latitude, Sensor longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
+    }
+
+    public Sensor getLatitude() {
+        return latitude;
+    }
+
+    public Sensor getLongitude() {
+        return longitude;
     }
 
     public void observeFields(){
@@ -88,9 +82,7 @@ public class GPSSensor implements Observable, IGPSSensor, IUIUpdateEventListener
         if (observable == latitude) {
             isLatUpToDate = true;
         }
-        if (isLongUpToDate && isLatUpToDate
-                && Math.abs(latitude.getValue() - Configuration.getInstance().START_POSITION_LAT) < 2.0
-                ) {
+        if (isLongUpToDate && isLatUpToDate && latitude.getValue() != 0.0 && longitude.getValue() != 0.0) {
             notifyObserver();
             isLongUpToDate = false;
             isLatUpToDate = false;

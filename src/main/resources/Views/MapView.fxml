@@ -2,37 +2,32 @@
 
 <!--
  Copyright 2015-2020 Peter-Josef Meisch (pj.meisch@sothawo.com)
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-       http://www.apache.org/licenses/LICENSE-2.0
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+        http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
 -->
 
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.sothawo.mapjfx.MapView?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="196.0" prefWidth="206.0" stylesheets="@constants.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pwr.pwrinspace.poliwrocket.Controller.MapController">
+<?import javafx.scene.layout.*?>
+<BorderPane stylesheets="@constants.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pwr.pwrinspace.poliwrocket.Controller.MapController">
    <top>
-      <Label fx:id="currentDistance" prefWidth="100.0" style="-fx-background-color: white; -fx-text-fill: black" text="Distance: 0m" BorderPane.alignment="TOP_RIGHT" />
+      <HBox alignment="CENTER_LEFT" spacing="5.0" BorderPane.alignment="CENTER">
+         <JFXTextField fx:id="currentDistance" editable="false" prefHeight="26.0" HBox.hgrow="ALWAYS" styleClass="map-cords" />
+      </HBox>
    </top>
    <center>
-      <MapView fx:id="mapView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="784.0" prefWidth="824.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin></MapView>
+      <MapView fx:id="mapView" minHeight="50.0" minWidth="50.0" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
       <HBox alignment="CENTER_LEFT" spacing="5.0" BorderPane.alignment="CENTER">
-         <JFXTextField fx:id="currentLocation" editable="false" prefHeight="26.0" prefWidth="210.0" styleClass="map-cords" />
+         <JFXTextField fx:id="currentLocation" editable="false" prefHeight="26.0" HBox.hgrow="ALWAYS" styleClass="map-cords" />
       </HBox>
    </bottom>
 </BorderPane>

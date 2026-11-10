@@ -6,8 +6,9 @@ import com.sothawo.mapjfx.offline.OfflineCache;
 import javafx.application.Platform;
 import javafx.beans.Observable;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.Node;
 import javafx.scene.paint.Color;
+import javafx.scene.web.WebView;
 import pl.edu.pwr.pwrinspace.poliwrocket.Model.Sensor.IGPSSensor;
 import pl.edu.pwr.pwrinspace.poliwrocket.Thred.UI.UIThreadManager;
 
@@ -26,7 +27,7 @@ public class MapController extends BaseController {
 
     @FXML private MapView mapView;
     @FXML private JFXTextField currentLocation;
-    @FXML protected Label currentDistance;
+    @FXML private JFXTextField currentDistance;
 
     private CoordinateLine track;
 
@@ -34,6 +35,8 @@ public class MapController extends BaseController {
     @FXML
     protected void initialize() {
         initMapAndControls(Projection.WEB_MERCATOR);
+        currentDistance.setText("Distance: 0m");
+        currentLocation.setText("Waiting for GPS...");
     }
 
     public void initMapAndControls(Projection projection) {
@@ -77,14 +80,28 @@ public class MapController extends BaseController {
         mapView.setZoom(ZOOM_DEFAULT);
         Coordinate startPosition = new Coordinate(pl.edu.pwr.pwrinspace.poliwrocket.Model.Configuration.Configuration.getInstance().START_POSITION_LAT+MAP_START_CORRECTION, pl.edu.pwr.pwrinspace.poliwrocket.Model.Configuration.Configuration.getInstance().START_POSITION_LON-MAP_START_CORRECTION);
         mapView.setCenter(startPosition);
+        hideOsmAttribution();
+    }
+
+    private void hideOsmAttribution() {
+        Platform.runLater(() -> {
+            Node webViewNode = mapView.lookup(".web-view");
+            if (webViewNode instanceof WebView webView) {
+                webView.getEngine().executeScript(
+                        "var style = document.createElement('style');" +
+                                "style.innerHTML = '.ol-attribution { display: none !important; }';" +
+                                "document.head.appendChild(style);"
+                );
+            }
+        });
     }
 
     @Override
     public void invalidated(Observable observable) {
         UIThreadManager.getInstance().addImmediateOnOK(() -> {
-            Coordinate nextCoordinate = new Coordinate(((IGPSSensor) observable).getPosition().get(IGPSSensor.LATITUDE_KEY), ((IGPSSensor) observable).getPosition().get(IGPSSensor.LONGITUDE_KEY));
+            Coordinate nextCoordinate = new Coordinate(((IGPSSensor) observable).getPosition().get(IGPSSensor.LATITUDE_KEY) / 10000, ((IGPSSensor) observable).getPosition().get(IGPSSensor.LONGITUDE_KEY) / 10000);
             currentLocation.setText(nextCoordinate.getLatitude() + ";" + nextCoordinate.getLongitude());
-            currentDistance.setText("Distance: " + distance(((IGPSSensor) observable).getPosition().get(IGPSSensor.LATITUDE_KEY), ((IGPSSensor) observable).getPosition().get(IGPSSensor.LONGITUDE_KEY)) + "m");
+            currentDistance.setText("Distance: " + distance(((IGPSSensor) observable).getPosition().get(IGPSSensor.LATITUDE_KEY) / 10000, ((IGPSSensor) observable).getPosition().get(IGPSSensor.LONGITUDE_KEY) / 10000) + "m");
             final List<Coordinate> coordinates = new ArrayList<>();
             if (track != null) {
                 track.setVisible(false);
@@ -95,10 +112,11 @@ public class MapController extends BaseController {
             coordinates.add(nextCoordinate);
             track = new CoordinateLine(coordinates)
                     .setColor(Color.DODGERBLUE)
-                    .setWidth(7)
+                    .setWidth(3)
                     .setClosed(false);
             mapView.addCoordinateLine(track);
             track.setVisible(true);
+            mapView.setCenter(nextCoordinate);
         });
     }
 
